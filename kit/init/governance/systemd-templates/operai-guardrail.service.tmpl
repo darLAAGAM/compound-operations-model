@@ -1,0 +1,28 @@
+[Unit]
+Description=OperAI @BRAND@ · guardrail meta-agent
+After=network-online.target operai-mcp.service
+Wants=network-online.target
+Requires=operai-mcp.service
+
+[Service]
+Type=simple
+User=@USER@
+Group=@USER@
+WorkingDirectory=@HOME@/agents/guardrail
+Environment="OPERAI_HOME=@HOME@"
+Environment="OPERAI_BRAND=@BRAND@"
+Environment="OPERAI_AGENT=guardrail"
+Environment="OPERAI_AGENT_ROLE=meta-admin"
+ExecStart=/usr/bin/python3 @HOME@/services/agent-runner.py --agent guardrail
+Restart=on-failure
+RestartSec=30
+StandardOutput=append:@HOME@/logs/guardrail.log
+StandardError=append:@HOME@/logs/guardrail.log
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=@HOME@/logs @HOME@/brain @HOME@/agents/guardrail @HOME@/compliance /tmp
+
+[Install]
+WantedBy=multi-user.target

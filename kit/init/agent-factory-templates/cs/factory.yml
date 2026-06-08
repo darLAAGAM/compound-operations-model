@@ -1,0 +1,98 @@
+# OperAI CS Agent Factory — v0.6 reference implementation
+# Domain: Customer Service
+# Parent: agents/cs/SOUL.md
+# Cost model: ~3,250 tokens/ticket, ~€0.002 (Haiku batch)
+# Ratio: 1 T-shaped CS lead + 1 M-shaped supervisor → 10 sub-agents → 500+ tickets/week
+
+domain: cs
+parent_soul: SOUL.md
+version: 0.7.0
+
+# Default LLM (brand-wide). Overrideable per sub-agent below.
+# The operator MUST configure at least one provider via `operai-init llm configure`
+# and set a default via `operai-init llm set-default` before the factory can run.
+default_llm:
+  provider: anthropic       # or openai | gemini | qwen | minimax
+  model:    haiku-4.5
+
+# Fallback chain — if primary returns 429/5xx, the runtime tries these in order.
+# Each entry must point at a provider the brand has configured.
+fallback_llm:
+  - { provider: openai,  model: gpt-4o-mini }
+  - { provider: gemini,  model: gemini-2.5-flash }
+
+sub_agents:
+  - name: triage
+    soul: sub-agents/triage/SOUL.md
+    inputs:  [raw_ticket]
+    outputs: [category, priority, sentiment, language]
+    llm: { provider: openai, model: gpt-4o-mini }
+    order:   1
+
+  - name: policy-lookup
+    soul: sub-agents/policy-lookup/SOUL.md
+    inputs:  [category, ticket_summary]
+    outputs: [applicable_policies, policy_confidence]
+    order:   2
+
+  - name: vip-detector
+    soul: sub-agents/vip-detector/SOUL.md
+    inputs:  [customer_email, customer_order_history]
+    outputs: [is_vip, vip_tier, special_handling_notes]
+    order:   3
+
+  - name: language-detect
+    soul: sub-agents/language-detect/SOUL.md
+    inputs:  [raw_ticket]
+    outputs: [language, dialect, confidence]
+    llm: { provider: gemini, model: gemini-2.5-flash }
+    order:   4
+
+  - name: sentiment-deep
+    soul: sub-agents/sentiment-deep/SOUL.md
+    inputs:  [raw_ticket, sentiment]
+    outputs: [escalation_score, escalation_signals]
+    order:   5
+
+  - name: refund-calc
+    soul: sub-agents/refund-calc/SOUL.md
+    inputs:  [applicable_policies, order_value, order_age_days]
+    outputs: [refund_eligible, refund_amount, refund_rationale]
+    order:   6
+
+  - name: brand-voice-check
+    soul: sub-agents/brand-voice-check/SOUL.md
+    inputs:  [draft_text, brand_voice_guide, dialect]
+    outputs: [voice_score, suggested_revisions]
+    llm: { provider: anthropic, model: sonnet-4.5 }
+    order:   7   # runs after drafter in practice; order kept for reference
+
+  - name: escalation-scorer
+    soul: sub-agents/escalation-scorer/SOUL.md
+    inputs:  [escalation_score, policy_confidence, is_vip, refund_eligible]
+    outputs: [action, rationale]   # action in [auto_send, human_review, escalate_supervisor]
+    order:   8
+
+  - name: drafter
+    soul: sub-agents/drafter/SOUL.md
+    inputs:  [ticket, applicable_policies, brand_voice, refund_amount, dialect, is_vip]
+    outputs: [draft_reply, action_recommended]
+    llm: { provider: anthropic, model: sonnet-4.5 }
+    order:   9
+
+  - name: follow-up-scheduler
+    soul: sub-agents/follow-up-scheduler/SOUL.md
+    inputs:  [ticket_id, action]
+    outputs: [follow_up_schedule]   # list of timestamps
+    order:   10
+
+# Orchestration rules
+orchestration:
+  default_order: "1,4,3,2,5,6,9,7,8,10"  # logical dispatch order
+  max_parallel: 3                          # triage/language/vip can run concurrently
+  fail_policy: escalate_to_parent          # if any sub-agent errors, parent decides
+  cost_budget_per_ticket_eur: 0.01         # hard cap; if exceeded, parent escalates
+
+# Logging
+memory_log: brain/memory/cs/YYYY-MM-DD.log
+trace_log:  brain/memory/cs/traces/<ticket_id>.md

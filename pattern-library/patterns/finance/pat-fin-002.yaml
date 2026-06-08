@@ -1,0 +1,31 @@
+id: pat-fin-002
+title: Automated Invoice Pipeline
+domain: finance
+summary: >
+  End-to-end invoice processing automation: inbound email monitoring detects
+  supplier invoices, OCR extracts structured data (vendor, amount, date, line items),
+  files are archived in cloud storage with consistent naming, and a master spreadsheet
+  is updated with all extracted fields. Zero manual data entry required.
+context:
+  trigger: Supplier invoice arrives via email attachment
+  industry: Any company processing 50+ invoices/month
+  team_size: 1 finance person previously doing manual entry
+metrics:
+  first_batch_volume: 117 invoices
+  manual_data_entry: 0
+  time_saved_per_invoice_minutes: ~5
+  error_rate_vs_manual: significantly lower
+implementation:
+  components:
+    - Email monitoring agent (IMAP polling or webhook)
+    - OCR extraction layer (cloud vision API or dedicated OCR service)
+    - Cloud storage filing with structured naming convention
+    - Spreadsheet sync for the finance team review
+  cost: Minimal (cloud API usage fees only)
+  complexity: Medium
+  setup_time: 1-2 weeks
+risks:
+  - OCR accuracy varies with invoice format; build a review queue for low-confidence extractions
+  - Email filtering rules must be precise to avoid processing non-invoice attachments
+  - Currency and date format differences across international suppliers
+tags: [finance, automation, ocr, invoices, zero-touch]

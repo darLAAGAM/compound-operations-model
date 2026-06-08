@@ -1,0 +1,27 @@
+[Unit]
+Description=OperAI @BRAND@ · cs agent
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=@USER@
+Group=@USER@
+WorkingDirectory=@HOME@/agents/cs
+Environment="OPERAI_HOME=@HOME@"
+Environment="OPERAI_BRAND=@BRAND@"
+Environment="OPERAI_AGENT=cs"
+ExecStart=/usr/bin/python3 @HOME@/services/agent-runner.py --agent cs
+Restart=on-failure
+RestartSec=30
+StandardOutput=append:@HOME@/logs/cs.log
+StandardError=append:@HOME@/logs/cs.log
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=@HOME@/logs @HOME@/brain @HOME@/agents/cs /tmp
+
+[Install]
+WantedBy=multi-user.target

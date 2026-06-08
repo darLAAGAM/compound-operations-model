@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key><string>ai.openclaw.AGENT_NAME</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/opt/homebrew/bin/openclaw</string>
+        <string>gateway</string>
+        <string>run</string>
+        <string>--force</string>
+    </array>
+    <key>WorkingDirectory</key><string>/Users/AGENT_NAME/AGENT_NAME</string>
+    <key>UserName</key><string>AGENT_NAME</string>
+    <key>GroupName</key><string>staff</string>
+    <key>RunAtLoad</key><true/>
+    <key>KeepAlive</key><true/>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>HOME</key><string>/Users/AGENT_NAME</string>
+        <key>PATH</key><string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+        <key>ANTHROPIC_API_KEY</key><string>sk-ant-api03-YOUR-KEY-HERE</string>
+    </dict>
+    <key>StandardOutPath</key><string>/Users/AGENT_NAME/AGENT_NAME/openclaw.log</string>
+    <key>StandardErrorPath</key><string>/Users/AGENT_NAME/AGENT_NAME/openclaw-error.log</string>
+</dict>
+</plist>

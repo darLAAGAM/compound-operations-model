@@ -1,0 +1,31 @@
+id: pat-inv-002
+title: Cross-System Inventory Reconciliation with Fuzzy Name Matching
+domain: inventory
+summary: >
+  Automated reconciliation across systems that use different naming conventions
+  for the same entities. Uses fuzzy matching to link records (e.g., bank statement
+  sender names vs accounting system vendor names) and a multi-check validation
+  approach to confirm matches with high confidence.
+context:
+  trigger: Monthly or weekly reconciliation between financial/inventory systems
+  industry: Any company using multiple SaaS tools with overlapping data
+  team_size: 1 finance/ops person
+metrics:
+  matching_approach: fuzzy name matching
+  validation_checks: 3 (sender name, reference/concept, amount)
+  example_match: "abbreviated bank name = full legal entity in accounting system"
+implementation:
+  components:
+    - Data extraction from both source systems (API or export)
+    - Fuzzy string matching algorithm (Levenshtein, token set ratio, or similar)
+    - 3-check validation pipeline (entity name, transaction reference, amount)
+    - Match confidence scoring with manual review queue for low-confidence matches
+    - Reconciliation report with matched, unmatched, and exception items
+  cost: Near-zero (runs on existing infrastructure)
+  complexity: Medium
+  setup_time: 1-2 weeks
+risks:
+  - Fuzzy matching may produce false positives with similar vendor names
+  - Amount matching needs tolerance for fees, FX differences, or partial payments
+  - New vendors require initial manual mapping before fuzzy matching learns them
+tags: [inventory, reconciliation, fuzzy-matching, finance, automation]

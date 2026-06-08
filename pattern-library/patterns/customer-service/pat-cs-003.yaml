@@ -1,0 +1,32 @@
+id: pat-cs-003
+title: CS Brand Voice Calibrated to Literary References
+domain: customer-service
+summary: >
+  A codified brand voice system for customer service agents (human and AI) built
+  on named literary and writing influences. Defines specific techniques with
+  before/after examples and a numeric tone scale calibrated by communication channel.
+  Ensures consistent, on-brand communication across all customer touchpoints.
+context:
+  trigger: Brand voice inconsistency across CS agents or channels
+  industry: Premium/lifestyle brands where tone is a differentiator
+  team_size: Any CS team size
+metrics:
+  writing_influences_referenced: 4
+  codified_techniques: 12
+  tone_scale: 1-4 out of 10 by channel
+  includes_before_after_examples: true
+implementation:
+  components:
+    - Voice guide document with named literary influences as reference points
+    - Technique catalog (12 specific writing techniques with before/after examples)
+    - Channel-specific tone scale (email vs chat vs social, rated 1-4/10 on formality)
+    - Integration into AI agent system prompts for automated enforcement
+    - Periodic audit of agent responses against voice guide
+  cost: One-time documentation effort, then near-zero
+  complexity: Low-Medium
+  setup_time: 1 week
+risks:
+  - Literary references may not resonate with all team members
+  - Over-stylized responses may frustrate customers seeking quick answers
+  - Tone calibration needs periodic updating as brand evolves
+tags: [customer-service, brand-voice, writing, tone, communication]

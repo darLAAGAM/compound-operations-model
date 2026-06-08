@@ -1,0 +1,29 @@
+id: PAT-RET-001
+domain: retail
+type: metric-benchmark
+confidence: high
+source_deployments: 1
+created: 2026-04-02
+title: "Traffic-to-conversion ratio reveals store optimization opportunities"
+context: |
+  Comparing stores by revenue misses the point. A store doing more revenue with poor conversion has a different problem than one with less revenue but great conversion.
+pattern: |
+  Weekly per store:
+  1. Foot traffic (sensor data)
+  2. Transaction count (POS)
+  3. Conversion = transactions / traffic
+  4. Revenue per visitor = revenue / traffic
+  5. Compare stores on conversion, not just revenue
+  Low conversion + high traffic = in-store experience problem
+  High conversion + low traffic = visibility/marketing problem
+conditions:
+  - Physical retail with foot traffic counters
+  - POS with transaction data
+  - 2+ locations
+anti_patterns:
+  - Dont compare only on revenue
+  - Calibrate traffic sensors monthly
+metrics:
+  - "Identified 2x conversion difference between stores"
+  - "1% attraction rate improvement = +43 entries/week"
+tags: [retail, conversion, traffic, analytics]

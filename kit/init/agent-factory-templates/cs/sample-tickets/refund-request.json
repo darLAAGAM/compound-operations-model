@@ -1,0 +1,13 @@
+{
+  "raw_ticket": "Hola, he recibido mi pedido hace 10 días (pedido #12345) y la talla no me queda bien. Quiero devolverlo. Lo pagué con tarjeta, son 80€. Gracias!\n\nMaría",
+  "ticket_summary": "Customer (Spanish, EUR) wants to return order #12345 placed 10 days ago, €80.00, sizing issue",
+  "customer_email": "<email:subject_test_maria>",
+  "customer_order_history": {
+    "order_count": 2,
+    "lifetime_value_eur": 185.00,
+    "first_order_date": "2025-12-18"
+  },
+  "order_value_eur": 80.00,
+  "order_age_days": 10,
+  "brand_voice": "Warm, direct, customer-first. Spanish-Spain dialect. Never corporate-stiff. Sign off with 'Un saludo'."
+}

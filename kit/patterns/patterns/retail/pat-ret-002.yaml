@@ -1,0 +1,33 @@
+id: pat-ret-002
+title: Physical Store Foot Traffic Scraping from Legacy Systems
+domain: retail
+summary: >
+  Automated data extraction from legacy foot traffic counting systems that lack
+  modern APIs. Uses browser automation to navigate legacy web interfaces (e.g.,
+  ASP.NET WebForms with ViewState), authenticate, export data files, and parse
+  the results into a structured format for analytics.
+context:
+  trigger: Need foot traffic data from a system with no API
+  industry: Retail with physical stores using older people-counting hardware
+  team_size: 0 (fully automated after setup)
+metrics:
+  automation_approach: browser automation (headless)
+  legacy_tech_navigated: ASP.NET WebForms with __VIEWSTATE
+  output_format: structured data parsed from Excel exports
+implementation:
+  components:
+    - Headless browser automation (Playwright or similar)
+    - Login and session management for legacy web app
+    - ViewState and form-field navigation logic
+    - Excel/CSV export triggering and file download handling
+    - Data parsing pipeline to extract structured metrics
+    - Scheduled execution (daily or weekly)
+  cost: Near-zero (headless browser on existing server)
+  complexity: Medium-High
+  setup_time: 1-2 weeks
+risks:
+  - Legacy system UI changes break automation without warning
+  - Session timeouts and CAPTCHAs may interrupt automated flows
+  - Data format in exports may change between software versions
+  - Vendor may deprecate the legacy interface entirely
+tags: [retail, scraping, legacy-systems, foot-traffic, browser-automation]

@@ -1,0 +1,31 @@
+id: pat-ops-003
+title: LLM Council for High-Stakes Strategic Decisions
+domain: operations
+summary: >
+  Multi-agent deliberation framework for important decisions. Six domain-expert
+  AI advisors answer independently, then blind-review each other's responses,
+  and a chairman model synthesizes the final answer. Produces higher-quality
+  decisions than single-model queries at minimal cost.
+context:
+  trigger: Strategic question requiring multiple expert perspectives
+  industry: Any organization using AI for decision support
+  team_size: 0 (automated multi-agent pipeline)
+metrics:
+  expert_advisors: 6
+  includes_blind_peer_review: true
+  cost_per_deliberation: 0.50-1.00 USD
+  synthesis_method: chairman model
+implementation:
+  components:
+    - Six domain-specific system prompts (e.g., strategy, finance, operations, marketing, CS, merchandising)
+    - Independent response generation (no cross-contamination)
+    - Blind peer ranking by 3 independent reviewers
+    - Chairman synthesis combining top-ranked perspectives
+  cost: 0.50-1.00 USD per deliberation
+  complexity: Medium
+  setup_time: 1 week
+risks:
+  - All advisors share the same underlying model biases
+  - Quality depends heavily on system prompt specificity
+  - Not a replacement for human judgment on irreversible decisions
+tags: [operations, ai-agents, decision-making, multi-agent, council]

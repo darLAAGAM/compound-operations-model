@@ -1,0 +1,26 @@
+id: PAT-HR-001
+domain: hr
+type: workflow
+confidence: medium
+source_deployments: 1
+created: 2026-04-02
+title: "AI payroll prep on the 20th reduces CEO time by 90%"
+context: |
+  Brands under 20M rarely have HR. Payroll prep falls on CEO done in a panic. AI compiles the monthly payroll newsletter automatically.
+pattern: |
+  Day 20 each month:
+  1. Scan team database for changes (hires, departures, salary changes)
+  2. Check leave system for incidents
+  3. Compile structured email for payroll agency
+  4. Create DRAFT only, never send directly
+  5. Notify CEO draft is ready (10min review)
+conditions:
+  - External payroll agency
+  - Team database with employee records
+anti_patterns:
+  - NEVER auto-send payroll info
+  - NEVER include salary data in shared channels
+metrics:
+  - "Prep time: 4-6h to 30min (-90%)"
+  - "Missed changes: near zero"
+tags: [hr, payroll, automation, compliance]

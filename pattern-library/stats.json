@@ -1,0 +1,15 @@
+{
+  "total_patterns": 21,
+  "by_domain": {
+    "customer-service": 3,
+    "finance": 3,
+    "hr": 1,
+    "inventory": 2,
+    "marketing": 4,
+    "operations": 5,
+    "retail": 2,
+    "wholesale": 1
+  },
+  "last_extraction": "2026-04-03T00:00:00",
+  "source_deployments": 1
+}

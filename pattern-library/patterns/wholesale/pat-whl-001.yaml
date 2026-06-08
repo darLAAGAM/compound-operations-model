@@ -1,0 +1,24 @@
+id: PAT-WHL-001
+domain: wholesale
+type: workflow
+confidence: high
+source_deployments: 1
+created: 2026-04-02
+title: "3-strike payment reminder recovers 40% of overdue B2B invoices"
+context: |
+  Wholesale accounts routinely pay late. Most brands send one reminder or escalate too early.
+pattern: |
+  Day 7: Friendly automated reminder with invoice attached
+  Day 21: Firm follow-up with full statement
+  Day 45: Escalation warning (human reviews and sends)
+  Recovery: ~25% at D7, ~10% at D21, ~5% at D45 = ~40% total
+conditions:
+  - B2B wholesale with net-30 or net-60 terms
+  - Invoice amounts 500-50K euro
+anti_patterns:
+  - Legal threats before Day 30
+  - Fully automated Day 45 (needs human judgment)
+metrics:
+  - "Recovery rate: ~40% of overdue"
+  - "Avg days to payment: 67 to 34"
+tags: [wholesale, payments, AR, collections]

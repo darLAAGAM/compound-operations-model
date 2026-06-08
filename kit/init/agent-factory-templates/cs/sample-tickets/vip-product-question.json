@@ -1,0 +1,13 @@
+{
+  "raw_ticket": "Hi team! Love the new serum — been a customer since 2022. Quick question: does the new edition contain retinol? I'm pregnant so I can't use retinol. Would hate to miss out if it doesn't. Thanks!\n\nAnna",
+  "ticket_summary": "VIP customer (long-standing), question about ingredient compatibility with pregnancy",
+  "customer_email": "<email:subject_test_anna>",
+  "customer_order_history": {
+    "order_count": 23,
+    "lifetime_value_eur": 4820.00,
+    "first_order_date": "2022-04-15"
+  },
+  "order_value_eur": 0,
+  "order_age_days": 0,
+  "brand_voice": "Warm, direct, customer-first. English-US. Sign off with 'xx'. Personal warmth for repeat customers."
+}

@@ -1,6 +1,6 @@
 # Chapter 02: The Problem
 
-## Consumer Brands Are Drowning in Point Solutions — and Starving for Operational Intelligence
+## Consumer SMEs Are Drowning in Point Solutions — and Starving for Operational Intelligence
 
 ---
 
@@ -16,7 +16,7 @@ The average consumer lifestyle brand with €5–50M in revenue runs 15–25 sof
 | Inventory/OMS | Stocky, Cin7, StockAgile, Skubana |
 | 3PL/Fulfillment | ShipBob, Deliverr, custom 3PL portals |
 | Wholesale | Faire, NuOrder, Joor, spreadsheets |
-| Accounting | Xero, QuickBooks, various regional tools |
+| Accounting | Xero, QuickBooks, Holded |
 | Analytics | GA4, Shopify Analytics, Looker Studio |
 | Paid Ads | Meta Ads, Google Ads, TikTok Ads |
 | Design | Figma, Canva |
@@ -31,7 +31,7 @@ Each tool generates data. None of them talk to each other. And between all of th
 
 ## The Human Tax
 
-Here's what a typical day looks like for an ops lead at a €5–15M consumer brand:
+Here's what a typical day looks like for an ops lead at a €5–15M brand:
 
 - **7:30 AM** — Check overnight orders, flag any issues
 - **8:00 AM** — Open the 3PL dashboard, check fulfillment status, reply to warehouse emails
@@ -91,7 +91,27 @@ When a customer asks "will this be back in stock?" — the ideal response requir
 
 When wholesale reorders slow down — the ideal response connects that signal to DTC sell-through data, marketing spend, and seasonal patterns. No dashboard shows you that.
 
-**This is the gap we fill.**
+**This is the gap the open architecture targets.**
+
+---
+
+## Intelligence vs. Judgement
+
+Sequoia recently framed every profession as a mix of intelligence work and judgement work. In brand operations, the split is dramatic:
+
+| Intelligence (automatable now) | Judgement (stays human) |
+|---|---|
+| CS ticket triage & response | Brand strategy & positioning |
+| Inventory sync across channels | Buying & assortment decisions |
+| Invoice processing & reconciliation | Creative direction |
+| Order tracking & fulfillment status | Key account relationships |
+| Sales reporting & KPI dashboards | Pricing strategy & markdown timing |
+| Email campaign scheduling | New market entry decisions |
+| Returns processing | Crisis management & PR |
+
+**~80% of daily operational work in a brand is intelligence work** — complex rules, but rules. The remaining 20% is genuine judgement that benefits from human experience, taste, and relationships.
+
+Most brands employ 100% of their team on 100% of the work. The compound model automates the 80% and frees the team to focus on the 20% that actually drives competitive advantage.
 
 ---
 
@@ -99,14 +119,24 @@ When wholesale reorders slow down — the ideal response connects that signal to
 
 Instead of adding more tools, we propose a different architecture:
 
-1. **Integrate** — Connect your systems into a unified data layer
-2. **Specialize** — Deploy purpose-built AI agents per operational domain
-3. **Orchestrate** — Make agents coordinate across functions
-4. **Compound** — Let the system get smarter every day
+1. **One intelligence layer** that connects to all your existing tools
+2. **Specialized agents** that understand each operational domain deeply
+3. **Orchestration** that makes agents work together, not in silos
+4. **Compounding** — the system gets smarter every week
 
 This isn't about replacing any tool. Your Shopify, your Klaviyo, your 3PL — they all stay. What changes is the layer above them.
 
 Think of it like this: your tools are instruments. Right now, each one plays solo. The Compound Operations Model is the conductor that makes them play as an orchestra.
+
+### Why Autopilot, Not Copilot?
+
+A copilot makes your CS agent faster. An autopilot **is** your CS agent.
+
+A copilot gives your ops lead better dashboards. An autopilot **runs** the daily ops.
+
+For every €1 spent on software tools, brands spend €6 on the people operating those tools. Copilots capture the €1 market. Autopilots capture the €6 market.
+
+Consumer SME operations — CS, inventory, finance, logistics coordination, retail, wholesale, subscriptions, returns, warranties — rarely appear on AI opportunity maps. This playbook shows the work is automatable with today's tools.
 
 The next chapter shows you the architecture.
 

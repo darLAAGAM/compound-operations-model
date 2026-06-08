@@ -1,0 +1,27 @@
+[Unit]
+Description=OperAI @BRAND@ · hr agent
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=@USER@
+Group=@USER@
+WorkingDirectory=@HOME@/agents/hr
+Environment="OPERAI_HOME=@HOME@"
+Environment="OPERAI_BRAND=@BRAND@"
+Environment="OPERAI_AGENT=hr"
+ExecStart=/usr/bin/python3 @HOME@/services/agent-runner.py --agent hr
+Restart=on-failure
+RestartSec=30
+StandardOutput=append:@HOME@/logs/hr.log
+StandardError=append:@HOME@/logs/hr.log
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=@HOME@/logs @HOME@/brain @HOME@/agents/hr /tmp
+
+[Install]
+WantedBy=multi-user.target

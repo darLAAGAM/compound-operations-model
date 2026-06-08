@@ -1,0 +1,27 @@
+[Unit]
+Description=OperAI @BRAND@ · finance agent
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=@USER@
+Group=@USER@
+WorkingDirectory=@HOME@/agents/finance
+Environment="OPERAI_HOME=@HOME@"
+Environment="OPERAI_BRAND=@BRAND@"
+Environment="OPERAI_AGENT=finance"
+ExecStart=/usr/bin/python3 @HOME@/services/agent-runner.py --agent finance
+Restart=on-failure
+RestartSec=30
+StandardOutput=append:@HOME@/logs/finance.log
+StandardError=append:@HOME@/logs/finance.log
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=@HOME@/logs @HOME@/brain @HOME@/agents/finance /tmp
+
+[Install]
+WantedBy=multi-user.target

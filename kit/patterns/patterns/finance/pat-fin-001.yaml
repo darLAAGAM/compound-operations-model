@@ -1,0 +1,28 @@
+id: PAT-FIN-001
+domain: finance
+type: workflow
+confidence: high
+source_deployments: 1
+created: 2026-04-02
+title: "Automated weekly P&L reduces financial blind spots from 30 days to 7"
+context: |
+  Most brands under 20M get P&L monthly. By then data is 2-4 weeks old. Automated weekly P&L gives near-real-time visibility.
+pattern: |
+  Every Monday 08:00:
+  1. Query ecommerce for last 7 days orders by channel
+  2. Query accounting for expenses
+  3. Calculate revenue by channel, gross margin, opex, contribution margin
+  4. Compare WoW and YoY
+  5. Flag anomalies >15% deviation from trend
+  6. Generate narrative summary with interpretation
+  7. Post to finance channel
+conditions:
+  - Ecommerce with API access to orders
+  - Accounting system with expense categorization
+anti_patterns:
+  - Dont present as audited financials
+  - Dont skip WoW comparison
+metrics:
+  - "Time: 8h manual to 45min review (-91%)"
+  - "Visibility: monthly to weekly"
+tags: [finance, pnl, reporting, weekly]

@@ -1,0 +1,27 @@
+[Unit]
+Description=OperAI @BRAND@ · ops agent
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=@USER@
+Group=@USER@
+WorkingDirectory=@HOME@/agents/ops
+Environment="OPERAI_HOME=@HOME@"
+Environment="OPERAI_BRAND=@BRAND@"
+Environment="OPERAI_AGENT=ops"
+ExecStart=/usr/bin/python3 @HOME@/services/agent-runner.py --agent ops
+Restart=on-failure
+RestartSec=30
+StandardOutput=append:@HOME@/logs/ops.log
+StandardError=append:@HOME@/logs/ops.log
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=@HOME@/logs @HOME@/brain @HOME@/agents/ops /tmp
+
+[Install]
+WantedBy=multi-user.target

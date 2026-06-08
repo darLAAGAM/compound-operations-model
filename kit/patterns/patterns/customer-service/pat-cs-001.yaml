@@ -1,0 +1,26 @@
+id: PAT-CS-001
+domain: customer-service
+type: resolution-template
+confidence: high
+source_deployments: 1
+created: 2026-04-02
+title: "Tracking queries are 97% automatable with order API lookup"
+context: |
+  Tracking/shipping status queries represent 40-60% of all CS tickets for DTC brands. They require zero human judgment.
+pattern: |
+  1. Customer asks about order status
+  2. Agent extracts email or order number
+  3. API call to Shopify Orders for tracking URL and status
+  4. If shipped: respond with carrier, tracking link, estimated delivery
+  5. If issue: escalate to human with full context
+  Confidence threshold: >95% for standard queries = fully autonomous
+conditions:
+  - DTC ecommerce with Shopify or equivalent
+  - Tracking data available via API
+anti_patterns:
+  - Dont promise delivery dates the carrier hasnt confirmed
+  - Dont auto-respond to lost package complaints (escalate)
+metrics:
+  - "Response time: 8h avg to 12min (97% reduction)"
+  - "Autonomous resolution rate: 92% for tracking queries"
+tags: [cs, tracking, automation, shopify]

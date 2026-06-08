@@ -1,0 +1,28 @@
+id: PAT-MKT-001
+domain: marketing
+type: metric-benchmark
+confidence: high
+source_deployments: 1
+created: 2026-04-02
+title: "AI-optimized email segmentation improves revenue per recipient +38%"
+context: |
+  Default segmentation (all, engaged, VIP) leaves money on the table. AI builds micro-segments from purchase behavior.
+pattern: |
+  Build 8-12 micro-segments from purchase data:
+  1. Recent first-time buyers (0-14 days) - welcome + cross-sell
+  2. Repeat buyers inactive 45+ days - win-back
+  3. High-AOV customers - premium features
+  4. Sale-only buyers - price-sensitive messaging
+  5. Category enthusiasts (2+ same category) - new arrivals
+  6. Abandoned cart by value tier (<50, 50-150, >150 euro)
+  Review segments weekly. A/B test vs default engaged segment.
+conditions:
+  - Email platform with API (Klaviyo, Mailchimp)
+  - 10K+ subscribers minimum
+anti_patterns:
+  - Dont over-segment below 500 per segment
+  - Dont exceed 3 emails/week per segment
+metrics:
+  - "Revenue per recipient: +38%"
+  - "Unsubscribe rate: stable (no increase)"
+tags: [marketing, email, segmentation, revenue]

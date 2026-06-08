@@ -1,0 +1,16 @@
+# Secrets and local state
+.env
+.env.*
+*.env
+credentials.env
+*.pem
+*.key
+secrets/
+
+# Runtime/build noise
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/
+.vercel/
+.cache/

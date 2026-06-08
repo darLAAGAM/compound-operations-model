@@ -1,0 +1,47 @@
+{
+  "name": "shopify-inventory-sync",
+  "version": "1.0.0",
+  "description": "Multi-location inventory synchronization for Shopify stores with 3PL and retail POS integration. Prevents oversells, detects discrepancies, and generates real-time stock alerts.",
+  "author": "AgentivAI",
+  "license": "MIT",
+  "keywords": [
+    "shopify",
+    "inventory",
+    "sync",
+    "multi-location",
+    "3pl",
+    "stockagile",
+    "amphora",
+    "ecommerce",
+    "retail",
+    "warehouse"
+  ],
+  "category": "ecommerce",
+  "triggers": [
+    "inventory",
+    "stock",
+    "sync",
+    "shopify",
+    "oversell",
+    "warehouse",
+    "3pl",
+    "stockout",
+    "restock"
+  ],
+  "integrations": [
+    "shopify",
+    "stockagile",
+    "amphora",
+    "shipstation"
+  ],
+  "requirements": {
+    "tools": ["shopify-admin-api"],
+    "config": ["TOOLS.md with Shopify credentials"]
+  },
+  "pricing": {
+    "type": "free",
+    "note": "Free to use. Requires your own Shopify API access."
+  },
+  "repository": "https://github.com/operai/skills",
+  "homepage": "https://oper.ai/skills/shopify-inventory-sync"
+}

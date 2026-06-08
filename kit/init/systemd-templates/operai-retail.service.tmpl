@@ -1,0 +1,27 @@
+[Unit]
+Description=OperAI @BRAND@ · retail agent
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=@USER@
+Group=@USER@
+WorkingDirectory=@HOME@/agents/retail
+Environment="OPERAI_HOME=@HOME@"
+Environment="OPERAI_BRAND=@BRAND@"
+Environment="OPERAI_AGENT=retail"
+ExecStart=/usr/bin/python3 @HOME@/services/agent-runner.py --agent retail
+Restart=on-failure
+RestartSec=30
+StandardOutput=append:@HOME@/logs/retail.log
+StandardError=append:@HOME@/logs/retail.log
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=@HOME@/logs @HOME@/brain @HOME@/agents/retail /tmp
+
+[Install]
+WantedBy=multi-user.target

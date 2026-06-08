@@ -12,25 +12,29 @@ The architecture that works is **specialized agents with a shared brain.**
 
 ```
                     ┌─────────────────────────────┐
-                    │      CENTRAL HUB            │
-                    │   Orchestration + Memory +  │
-                    │   Cross-agent Intelligence  │
+                    │   🧠 STRATEGY AGENT (Central Hub)    │
+                    │   Strategy + Orchestration    │
+                    │   Cloud VPS (EU)       │
                     └───────────┬─────────────────┘
-                                │
-        ┌───────────┬───────────┼───────────┬───────────┬───────────┐
-        │           │           │           │           │           │
-   ┌────▼────┐ ┌────▼────┐ ┌────▼────┐ ┌────▼────┐ ┌────▼────┐ ┌────▼────┐
-   │   CS    │ │  Ops /  │ │ Finance │ │Marketing│ │Wholesale│ │ Retail  │
-   │  Agent  │ │Inventory│ │  Agent  │ │  Agent  │ │  Agent  │ │  Agent  │
-   └────┬────┘ └────┬────┘ └────┬────┘ └────┬────┘ └────┬────┘ └────┬────┘
-        │           │           │           │           │           │
-   ┌────▼────┐ ┌────▼────┐ ┌────▼────┐ ┌────▼────┐ ┌────▼────┐ ┌────▼────┐
-   │Your CS  │ │Shopify  │ │ Finance │ │ Klaviyo │ │  Email  │ │  POS    │
-   │Platform │ │3PL APIs │ │ Tools   │ │Meta Ads │ │  B2B    │ │Analytics│
-   │Gorgias/ │ │Inventory│ │ Google  │ │   GSC   │ │Linesheet│ │TC Store │
-   │Richpanel│ │Systems  │ │ Sheets  │ │         │ │         │ │         │
-   └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘
+                                │ Tailscale Mesh
+        ┌───────────┬───────────┼───────────┬───────────────┐
+        │           │           │           │               │
+   ┌────▼────┐ ┌────▼────┐ ┌────▼────┐ ┌────▼────┐ ┌───────▼───────┐
+   │🦋CS Agent│ │📊Finance Agent│ │🏪 Retail Agent  │ │💻Donatel│ │🏖️ Merchandising Agent      │
+   │   CS    │ │ Finance │ │ Retail  │ │Digital  │ │Merchandising  │
+   │         │ │         │ │         │ │Marketing│ │& Wholesale    │
+   └────┬────┘ └────┬────┘ └────┬────┘ └────┬────┘ └───────┬───────┘
+        │           │           │           │               │
+        └───────────┴───────────┴───────────┴───────────────┘
+                         Mac Mini (secondary host)
+                    ┌─────────────────────────────┐
+                    │     SHARED BRAIN (1,341 files)   │
+                    │   rsync ↔ every 30 minutes    │
+                    │   + MCP Server (44 tools)     │
+                    └─────────────────────────────┘
 ```
+
+**The production topology:** Strategy Agent (hub/strategy) runs on a cloud VPS in the EU. The domain agents run on a dedicated secondary host. All connected through an encrypted private network. A shared brain syncs bidirectionally every 30 minutes. This is the reference deployment, not a requirement; the technical appendix shows the host-specific setup.
 
 ## Design Principles
 
@@ -43,7 +47,7 @@ Every agent owns a specific area of the business. This means:
 
 ### 2. Agents Communicate Through the Hub
 
-Agents don't talk to each other directly. They communicate through a central orchestrator. This prevents chaos and creates an audit trail.
+In the ideal architecture, agents communicate through a central orchestrator — this prevents chaos and creates an audit trail. In practice, the coordination often flows through team messaging channels (Slack, WhatsApp) where both agents and humans participate. The key is that every cross-domain request is logged and traceable, whether it routes through the hub directly or through a shared channel.
 
 Example flow:
 1. **CS Agent** receives complaint: "My order hasn't arrived"
@@ -59,7 +63,7 @@ All of this happens in seconds. No human needed unless confidence is low.
 ### 3. Shared Knowledge, Separate Personalities
 
 All agents share:
-- **Product catalog** (descriptions, pricing, inventory levels)
+- **Catalog data** (products, descriptions, pricing, inventory, bundles, subscriptions, warranties)
 - **Brand voice guidelines** (tone, vocabulary, do's and don'ts)
 - **Customer history** (past orders, past issues, lifetime value)
 - **Business rules** (return policy, shipping times, discount limits)
@@ -80,7 +84,7 @@ This is critical. The system is designed with **graduated autonomy:**
 | 60-80% | Agent drafts response, human must approve |
 | < 60% | Agent escalates to human with full context |
 
-Over time, as the system learns and you trust it more, you adjust these thresholds upward. In our deployment:
+Over time, as the system learns and you trust it more, you adjust these thresholds upward. In a typical deployment:
 - Month 1: 40% autonomous
 - Month 3: 65% autonomous
 - Month 6: 82% autonomous
@@ -101,22 +105,29 @@ This isn't just good practice — it's a GDPR requirement if you're operating in
 
 ## The Technology Stack
 
-At the core, the system runs on **OpenClaw** — an open-source AI agent framework that connects LLMs to real-world actions.
+At the core, the reference system runs on **OpenClaw** — an open-source AI agent framework that connects LLMs to real-world actions. You can fork the repo and swap this layer if another runtime fits your team better.
 
 | Component | What We Use | Why |
 |-----------|------------|-----|
 | **Agent Runtime** | OpenClaw | Open source, local-first, 50+ integrations, active community |
-| **Primary LLM** | Claude Opus/Sonnet | Best reasoning for complex business decisions |
-| **Secondary LLM** | GPT-5.4 / Gemini Flash | Cost-effective for simpler tasks |
+| **Primary LLM** | Mixed: GPT-5.4 via ChatGPT OAuth (hub + 4 domain agents), Claude Sonnet 4 (CS + HR) | Best model per role with zero-incremental-cost routing where existing team subscriptions already exist |
+| **Secondary LLMs** | GPT-5.4 / Codex / Gemini Flash | Cost-effective for simpler tasks, coding agents |
 | **Hosting** | Dedicated server (Hetzner) | €40/mo, full control, EU data residency |
 | **Agent-to-Agent** | ACP (Agent Communication Protocol) | Native cross-agent coordination |
 | **Messaging** | WhatsApp, Slack, Email | Meet teams where they already work |
 | **Memory** | Local files + structured knowledge base | No vendor lock-in, full data ownership |
 | **Monitoring** | Built-in heartbeats + cron jobs | Self-healing, auto-restart |
+| **ERP / Accounting** | Holded | Invoicing, payment reconciliation, ledger |
+| **Expense Management** | Payhawk | Corporate cards, expense tracking, bank statements |
+| **Knowledge Base** | Notion + Brain Context Tree | 1,341 docs organized by domain, auto-indexed |
+| **Social Listening** | Agent-Reach + bird CLI | Twitter/X monitoring, multi-platform scanning |
+| **Semantic Search** | Exa | Better than Google for competitive research |
+| **Image Generation** | Krea AI | Product shots, creative assets |
+| **Power-User Layer** | Claude Code + MCP | Founder's direct interface — 44 tools, slash commands, subagents |
 
-**Total infrastructure cost:** ~€400-800/month depending on LLM usage
+**Total system cost:** €352/month all-in (infrastructure + LLM access + subscriptions). See Ch.12 for the complete cost breakdown.
 
-Compare this to the €12,000-15,000/month equivalent in human operational costs.
+Compare this to roughly €6,500/month in equivalent saved labor hours (62 hours/week × €21/h loaded operational labor, plus founder opportunity cost). That is a verifiable 18:1 ratio, calculated in Ch.12 with every assumption on the table.
 
 ## What You Need to Get Started
 
@@ -124,18 +135,44 @@ Compare this to the €12,000-15,000/month equivalent in human operational costs
 - A Linux server or VPS (€20-40/month)
 - An LLM API key (Anthropic, OpenAI, or similar)
 - OpenClaw installed and configured
-- One channel connection (Slack, WhatsApp, or email)
+- One channel connection (Slack, WhatsApp, email, helpdesk, or team chat)
 - 2-4 hours for initial setup
 
-**Full deployment (6 agents):**
-- Dedicated server with good specs (€40-80/month)
-- Multiple LLM API keys for redundancy
+**Full deployment (8 agents):**
+- VPS (€15/month) + Mac Mini as secondary compute (~€22/month amortized)
+- ChatGPT OAuth seats for hub + non-customer agents, plus Anthropic API for CS/HR and fallbacks
 - All channel connections configured
 - Integrations with your existing tools (Shopify, Klaviyo, etc.)
 - 2-4 weeks for full implementation and tuning
+- A second compute node (Mac Mini, NUC, VPS, or equivalent) for agent isolation
 
-The next chapters in the implementation kit walk through each agent in detail — what it does, how it's configured, and the specific results it delivers.
+> **A note on agent roles:** The production deployment documented in this playbook runs eight agents across eight domains: CS, Finance, Retail, Digital Marketing, Merchandising & Wholesale, and a central hub for strategy and orchestration. In practice, you'll adapt these to your org chart. Wholesale was absorbed into Merchandising because the same operational patterns apply (account management, order flow, pricing). Finance is now a standalone domain. The architecture is modular by design — start with the domains that hurt most, split or merge as you scale.
+
+### 6. Confidence Scoring (New)
+
+Every agent includes a standardized confidence framework that drives graduated autonomy:
+
+| Confidence | Action | Example |
+|-----------|--------|---------|
+| > 95% | Act autonomously | Standard tracking query, stock check |
+| 80-95% | Act + flag `[REVIEW]` | Return within policy, payment reminder |
+| 60-80% | Draft for human approval | Complaint response, discount request |
+| < 60% | Escalate with full context | Legal issue, VIP escalation |
+
+Agents self-report confidence with every action: `[Confidence: 92%] Responding to tracking query`. This creates an auditable record and enables systematic threshold adjustment over time.
+
+### 7. Audit Logging
+
+Every agent action is logged to a structured JSONL audit trail:
+
+```json
+{"timestamp":"2026-03-28T21:21:14+00:00","agent":"cs_agent","action":"cs_ticket_response","confidence":"94%","data":"order_tracking","human_review":false}
+```
+
+Monthly rotation. GDPR-compliant. The audit log is the foundation for measuring autonomy rates and detecting quality regressions.
+
+The next eight chapters walk through each agent in detail — what it does, how it's configured, and the specific results it delivers.
 
 ---
 
-*Continue reading in [the Complete Implementation Kit](https://operai-six.vercel.app) →*
+*Next: [Chapter 4 — Agent #1: Customer Service →](04-agent-cs.md)*

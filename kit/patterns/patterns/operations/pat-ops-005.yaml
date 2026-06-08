@@ -1,0 +1,31 @@
+id: pat-ops-005
+title: Anti-Prompt-Injection in Customer-Facing Agents
+domain: operations
+summary: >
+  Security framework for AI agents that process untrusted customer input.
+  Treats all customer-originated content (emails, chat messages) as untrusted data,
+  implements injection detection heuristics, sends real-time alerts on detected
+  attempts, and enforces strict policies like never following links in customer content.
+context:
+  trigger: Deploying any AI agent that reads customer messages
+  industry: Any company with customer-facing AI automation
+  team_size: 1 engineer for initial setup
+metrics:
+  input_classification: all customer content treated as untrusted
+  detection_alerts: real-time via team chat
+  link_following_policy: never from customer content
+implementation:
+  components:
+    - Input sanitization layer before LLM processing
+    - Injection detection heuristics (instruction-like patterns, role-play attempts, system prompt extraction)
+    - Real-time alert channel for detected injection attempts
+    - Strict output constraints (no tool calls triggered by customer content alone)
+    - Regular red-team testing schedule
+  cost: Minimal (detection logic + alerting)
+  complexity: Medium-High
+  setup_time: 1-2 weeks
+risks:
+  - Detection heuristics produce false positives on legitimate customer messages
+  - Novel injection techniques may bypass pattern-based detection
+  - Over-restrictive policies may reduce agent helpfulness
+tags: [operations, security, prompt-injection, ai-safety, customer-facing]

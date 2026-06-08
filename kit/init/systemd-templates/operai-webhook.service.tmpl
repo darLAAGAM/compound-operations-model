@@ -1,0 +1,26 @@
+[Unit]
+Description=OperAI @BRAND@ · webhook receiver (helpdesk integrations)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=@USER@
+Group=@USER@
+WorkingDirectory=@HOME@
+Environment="OPERAI_HOME=@HOME@"
+Environment="OPERAI_BRAND=@BRAND@"
+Environment="PYTHONPATH=@HOME@/services/init/cli"
+ExecStart=/usr/bin/python3 -m operai_init.webhook.server --host 127.0.0.1 --port 8788
+Restart=on-failure
+RestartSec=10
+StandardOutput=append:@HOME@/logs/webhook.log
+StandardError=append:@HOME@/logs/webhook.log
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=@HOME@/events @HOME@/logs @HOME@/credentials /tmp
+
+[Install]
+WantedBy=multi-user.target

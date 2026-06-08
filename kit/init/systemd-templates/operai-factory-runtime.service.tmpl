@@ -1,0 +1,27 @@
+[Unit]
+Description=OperAI @BRAND@ · factory runtime daemon
+After=network-online.target operai-mcp.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=@USER@
+Group=@USER@
+WorkingDirectory=@HOME@
+Environment="OPERAI_HOME=@HOME@"
+Environment="OPERAI_BRAND=@BRAND@"
+Environment="PYTHONPATH=@HOME@/services/init/cli:@HOME@/workflows"
+ExecStart=/usr/bin/python3 -m operai_init.factory_runtime.daemon --home @HOME@ --brand @BRAND@
+Restart=on-failure
+RestartSec=10
+StandardOutput=append:@HOME@/logs/factory-runtime.log
+StandardError=append:@HOME@/logs/factory-runtime.log
+
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=@HOME@/events @HOME@/brain @HOME@/logs @HOME@/agents /tmp
+
+[Install]
+WantedBy=multi-user.target

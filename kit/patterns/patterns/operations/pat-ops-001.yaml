@@ -1,0 +1,27 @@
+id: PAT-OPS-001
+domain: operations
+type: workflow
+confidence: high
+source_deployments: 1
+created: 2026-04-02
+title: "Daily Knowledge Mining prevents institutional knowledge loss"
+context: |
+  AI agents process hundreds of decisions daily. Without extraction, learnings evaporate when sessions end.
+pattern: |
+  Daily 06:00:
+  1. Read yesterdays agent memory/session log
+  2. LLM extraction: what decisions, policies, patterns should be preserved?
+  3. Categorize by domain (finance, ops, marketing, etc.)
+  4. Write to persistent knowledge base
+  5. Rebuild search indexes
+  6. Log what was extracted for audit
+conditions:
+  - Multi-agent system with session logs
+  - Persistent knowledge base
+anti_patterns:
+  - Dont store everything, only durable decisions
+  - Dont skip categorization
+metrics:
+  - "8-15 durable findings per day"
+  - "Knowledge base grows ~200 docs/year organically"
+tags: [operations, knowledge, memory, automation]

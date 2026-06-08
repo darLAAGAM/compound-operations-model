@@ -1,0 +1,64 @@
+{
+  "gateway": {
+    "bind": "loopback",
+    "port": 18789
+  },
+  "permissionMode": "approve-all",
+  "nonInteractivePermissions": "deny",
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "anthropic/claude-sonnet-4",
+        "fallbacks": [
+          "anthropic/claude-opus-4-6"
+        ]
+      }
+    }
+  },
+  "channels": {
+    "slack": {
+      "enabled": true,
+      "botToken": "xoxb-YOUR-BOT-TOKEN",
+      "appToken": "xapp-YOUR-APP-TOKEN"
+    }
+  },
+  "heartbeat": {
+    "every": "30m",
+    "activeHours": {
+      "start": "08:00",
+      "end": "23:00",
+      "timezone": "Europe/Madrid"
+    }
+  },
+  "tools": {
+    "exec": {
+      "ask": "off",
+      "security": "full"
+    }
+  },
+  "mcp": {
+    "servers": {
+      "your-brand": {
+        "type": "sse",
+        "url": "https://mcp.yourdomain.com/sse"
+      }
+    }
+  },
+  "plugins": {
+    "entries": {
+      "@byterover/byterover": {
+        "enabled": true,
+        "config": {
+          "ownsCompaction": false,
+          "contextTree": {
+            "basePath": "brain/knowledge",
+            "enabled": true
+          }
+        }
+      }
+    },
+    "slots": {
+      "contextEngine": "byterover"
+    }
+  }
+}

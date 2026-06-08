@@ -1,0 +1,28 @@
+[Unit]
+Description=OperAI @BRAND@ · critic meta-agent
+After=network-online.target operai-mcp.service
+Wants=network-online.target
+Requires=operai-mcp.service
+
+[Service]
+Type=simple
+User=@USER@
+Group=@USER@
+WorkingDirectory=@HOME@/agents/critic
+Environment="OPERAI_HOME=@HOME@"
+Environment="OPERAI_BRAND=@BRAND@"
+Environment="OPERAI_AGENT=critic"
+Environment="OPERAI_AGENT_ROLE=meta-admin"
+ExecStart=/usr/bin/python3 @HOME@/services/agent-runner.py --agent critic
+Restart=on-failure
+RestartSec=30
+StandardOutput=append:@HOME@/logs/critic.log
+StandardError=append:@HOME@/logs/critic.log
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=@HOME@/logs @HOME@/brain @HOME@/agents/critic @HOME@/compliance /tmp
+
+[Install]
+WantedBy=multi-user.target

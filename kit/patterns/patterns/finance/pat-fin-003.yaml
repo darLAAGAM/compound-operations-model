@@ -1,0 +1,30 @@
+id: pat-fin-003
+title: Bank Credit Line Amortization Alerts
+domain: finance
+summary: >
+  Proactive monitoring of active credit lines with automated payment reminders.
+  The system tracks amortization schedules across multiple credit facilities,
+  calculates upcoming payment dates and amounts, and sends alerts with sufficient
+  lead time to prevent missed payments and penalty fees.
+context:
+  trigger: Scheduled daily check against amortization calendars
+  industry: Any SME with multiple bank credit lines
+  team_size: 1 CFO or finance manager
+metrics:
+  credit_lines_monitored: 5
+  advance_warning_hours: 48
+  missed_payments_since_deployment: 0
+implementation:
+  components:
+    - Amortization schedule database (extracted from bank contracts)
+    - Daily cron job comparing today vs upcoming payment dates
+    - Alert system (Slack/email) with 48h and 24h warning tiers
+    - Dashboard showing all active lines, next payments, remaining principal
+  cost: Near-zero (runs on existing infrastructure)
+  complexity: Low
+  setup_time: 2-3 days
+risks:
+  - Bank may change terms or schedules; manual update process needed
+  - Holidays and weekends affect actual debit dates vs calendar dates
+  - Multiple currencies require exchange rate awareness for cash planning
+tags: [finance, credit, banking, alerts, cash-management]

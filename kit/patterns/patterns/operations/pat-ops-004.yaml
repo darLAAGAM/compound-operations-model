@@ -1,0 +1,31 @@
+id: pat-ops-004
+title: "3-Tier Model Cost Optimization"
+domain: operations
+summary: >
+  Routing AI tasks across three cost tiers based on complexity: expensive frontier
+  models for complex reasoning, mid-tier models for routine work, and free local
+  models for simple tasks. Dramatically reduces API spend while maintaining quality
+  where it matters.
+context:
+  trigger: AI API costs growing faster than value delivered
+  industry: Any organization with diverse AI workloads
+  team_size: 1 engineer to set up routing logic
+metrics:
+  tiers: 3
+  tier_1: Frontier model for complex reasoning and strategy
+  tier_2: Mid-tier model for routine generation and summarization
+  tier_3: Free local model for simple classification and extraction
+implementation:
+  components:
+    - Task complexity classifier (rule-based or lightweight model)
+    - Routing layer that dispatches to appropriate tier
+    - Cost tracking dashboard per tier and per use case
+    - Fallback escalation when lower tier produces low-confidence output
+  cost: Varies; typical 40-60% reduction vs all-frontier approach
+  complexity: Medium
+  setup_time: 1-2 weeks
+risks:
+  - Complexity classifier may misroute tasks, degrading quality
+  - Local models require infrastructure (GPU or sufficient CPU)
+  - Model updates across tiers need coordinated testing
+tags: [operations, ai-agents, cost-optimization, model-routing, llm]

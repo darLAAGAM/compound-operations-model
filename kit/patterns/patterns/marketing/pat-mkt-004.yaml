@@ -1,0 +1,30 @@
+id: pat-mkt-004
+title: PR Tracking with Automated Story Capture
+domain: marketing
+summary: >
+  Comprehensive press and media tracking system that monitors brand mentions,
+  captures ephemeral content (Instagram stories, TikTok mentions) before expiration,
+  and calculates Social Media Value for each placement. Solves the problem of losing
+  PR evidence when stories expire after 24 hours.
+context:
+  trigger: Brand receives press coverage or influencer mentions
+  industry: Fashion, beauty, lifestyle brands with active PR programs
+  team_size: 1 PR/comms person
+metrics:
+  clippings_tracked: 223+
+  story_capture_before_expiration: automated
+  social_media_value_calculated: per clipping
+implementation:
+  components:
+    - Media monitoring alerts (Google Alerts, social listening tools)
+    - Automated Instagram story downloader triggered by brand mention detection
+    - Clipping database with metadata (outlet, reach, date, type, SMV)
+    - Monthly PR value report generation
+  cost: Low (monitoring tools + storage)
+  complexity: Medium
+  setup_time: 1-2 weeks
+risks:
+  - Platform API changes may break story download automation
+  - Social Media Value calculations are inherently subjective
+  - Volume spikes during product launches may need manual triage
+tags: [marketing, pr, media-monitoring, social-media, automation]

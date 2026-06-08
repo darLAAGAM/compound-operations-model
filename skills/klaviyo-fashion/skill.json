@@ -1,0 +1,45 @@
+{
+  "name": "klaviyo-fashion",
+  "version": "1.0.0",
+  "description": "Email and SMS marketing optimization for fashion and apparel brands. Includes flow templates, segment recipes, and performance benchmarks specific to fashion retail.",
+  "author": "AgentivAI",
+  "license": "MIT",
+  "keywords": [
+    "klaviyo",
+    "email",
+    "marketing",
+    "fashion",
+    "apparel",
+    "ecommerce",
+    "automation",
+    "flows",
+    "segments",
+    "dtc"
+  ],
+  "category": "marketing",
+  "triggers": [
+    "klaviyo",
+    "email",
+    "email marketing",
+    "flows",
+    "abandoned cart",
+    "segments",
+    "campaign",
+    "fashion email",
+    "newsletter"
+  ],
+  "integrations": [
+    "klaviyo",
+    "shopify"
+  ],
+  "requirements": {
+    "tools": ["klaviyo-api"],
+    "config": ["TOOLS.md with Klaviyo API key"]
+  },
+  "pricing": {
+    "type": "free",
+    "note": "Free to use. Requires Klaviyo account with API access."
+  },
+  "repository": "https://github.com/operai/skills",
+  "homepage": "https://oper.ai/skills/klaviyo-fashion"
+}

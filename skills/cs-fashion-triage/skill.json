@@ -1,0 +1,48 @@
+{
+  "name": "cs-fashion-triage",
+  "version": "1.0.0",
+  "description": "Intelligent customer service automation for fashion brands. Handles sizing questions, returns, order tracking, and product queries with fashion-specific logic and brand voice preservation.",
+  "author": "AgentivAI",
+  "license": "MIT",
+  "keywords": [
+    "customer-service",
+    "fashion",
+    "apparel",
+    "returns",
+    "sizing",
+    "order-tracking",
+    "triage",
+    "support",
+    "ecommerce",
+    "dtc"
+  ],
+  "category": "customer-service",
+  "triggers": [
+    "customer service",
+    "cs",
+    "support",
+    "tickets",
+    "returns",
+    "sizing",
+    "order tracking",
+    "fashion support",
+    "helpdesk"
+  ],
+  "integrations": [
+    "shopify",
+    "richpanel",
+    "gorgias",
+    "zendesk",
+    "klaviyo"
+  ],
+  "requirements": {
+    "tools": ["shopify-admin-api", "cs-platform-api"],
+    "config": ["TOOLS.md with Shopify + CS platform credentials", "SOUL.md with brand voice"]
+  },
+  "pricing": {
+    "type": "free",
+    "note": "Free to use. Requires your own platform API access."
+  },
+  "repository": "https://github.com/operai/skills",
+  "homepage": "https://oper.ai/skills/cs-fashion-triage"
+}

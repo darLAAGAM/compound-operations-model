@@ -1,0 +1,25 @@
+id: PAT-INV-001
+domain: inventory
+type: threshold
+confidence: high
+source_deployments: 1
+created: 2026-04-02
+title: "30-minute inventory sync prevents overselling across channels"
+context: |
+  Multi-channel brands have inventory discrepancies causing overselling. Daily syncs arent enough.
+pattern: |
+  1. Cron every 30min during business hours (07:00-21:00)
+  2. Query all stock sources: Shopify, POS, 3PL, wholesale reserves
+  3. Flag discrepancies >2 units between systems
+  4. Alert on variants <3 units (critical) or negative (oversold)
+  5. Weekly summary of discrepancies found and resolved
+conditions:
+  - Multi-channel retail (online + physical + wholesale)
+  - More than 1 inventory source
+anti_patterns:
+  - Dont sync more than every 15min (API rate limits)
+  - Dont auto-adjust if discrepancy >10 units (human review)
+metrics:
+  - "Inventory errors: 23/month to 2/month (-91%)"
+  - "Overselling incidents: ~5/month to near zero"
+tags: [inventory, sync, multi-channel, stockout]

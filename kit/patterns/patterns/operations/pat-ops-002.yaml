@@ -1,0 +1,32 @@
+id: pat-ops-002
+title: "AutoResearch: Self-Optimizing Agent Prompts via Evolution Loop"
+domain: operations
+summary: >
+  Weekly automated improvement cycle for AI agent system prompts. The system mutates
+  existing prompts, evaluates variants against a scoring rubric, and deploys improved
+  versions if they exceed a threshold. Creates a continuous improvement flywheel
+  where agent quality increases autonomously over time.
+context:
+  trigger: Weekly scheduled cron job
+  industry: Any organization running customer-facing AI agents
+  team_size: 0 (fully automated after setup)
+metrics:
+  improvement_threshold: ">5% score increase to deploy"
+  cost_per_cycle: ~36 USD/week
+  baseline_quality_score: 94.7%
+  cycle_frequency: weekly
+implementation:
+  components:
+    - Prompt mutation engine (systematic variations of tone, structure, examples)
+    - Evaluation framework with rubric-based scoring
+    - A/B comparison against current production prompt
+    - Automated deployment gate (only if improvement > threshold)
+    - Rollback mechanism if live metrics degrade
+  cost: ~36 USD/week in LLM API calls
+  complexity: High
+  setup_time: 2-3 weeks
+risks:
+  - Mutations may introduce unintended behavioral changes
+  - Evaluation rubric must be comprehensive to avoid Goodhart problem
+  - Need human review checkpoint for significant prompt changes
+tags: [operations, ai-agents, prompt-engineering, self-improvement, automation]

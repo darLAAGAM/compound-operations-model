@@ -1,0 +1,21 @@
+{
+  "name": "agent-payments",
+  "version": "1.0.0",
+  "description": "Autonomous purchase skill with Payhawk virtual card, invoice management, and receipt upload",
+  "triggers": [
+    "buy", "purchase", "domain", "subscribe", "subscription",
+    "renew", "renewal", "pay for", "checkout", "comprar", "dominio"
+  ],
+  "requires": {
+    "tools": ["browser", "message", "exec"],
+    "apis": ["payhawk"],
+    "credentials": ["brain/knowledge/agent-card.md"]
+  },
+  "safety": {
+    "maxTransactionEur": 50,
+    "maxMonthlyEur": 100,
+    "requiresApproval": true,
+    "approvalChannel": "whatsapp",
+    "approvalTarget": "+34616921129"
+  }
+}

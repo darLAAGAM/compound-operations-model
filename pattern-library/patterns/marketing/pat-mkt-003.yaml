@@ -1,0 +1,31 @@
+id: pat-mkt-003
+title: "GEO: Generative Engine Optimization for AI Search Visibility"
+domain: marketing
+summary: >
+  Optimization strategy for appearing in AI-powered search engines (ChatGPT, Perplexity,
+  Gemini). Goes beyond traditional SEO by implementing structured data specifically
+  designed for LLM consumption: FAQ Schema, LocalBusiness Schema, and an llms.txt file
+  that provides machine-readable brand context.
+context:
+  trigger: Brand not appearing in AI search results despite good traditional SEO
+  industry: Any D2C brand competing for AI search visibility
+  team_size: 1 SEO/digital marketing person
+metrics:
+  visibility_score_before: 35%
+  visibility_score_after: 60%
+  ai_search_positions_achieved: 1-4
+  platforms_tested: ChatGPT, Perplexity
+implementation:
+  components:
+    - FAQ Schema markup on key product and category pages
+    - LocalBusiness Schema for physical store presence
+    - llms.txt file at domain root with structured brand information
+    - Regular monitoring of AI search results for brand queries
+  cost: Near-zero (content and markup changes only)
+  complexity: Low-Medium
+  setup_time: 1 week
+risks:
+  - AI search ranking algorithms are opaque and change frequently
+  - No guaranteed indexing timeline for llms.txt adoption
+  - Competitors will copy the approach once visible
+tags: [marketing, seo, geo, ai-search, schema, llms-txt]

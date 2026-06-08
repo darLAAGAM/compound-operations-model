@@ -1,0 +1,13 @@
+{
+  "raw_ticket": "This is the THIRD time I'm writing about my missing package. Order #9087 was supposed to arrive last Tuesday. Nobody replies. I've already reached out on Twitter. If I don't get an answer today I'm disputing the charge with my bank AND filing a complaint with the consumer protection agency. This is ridiculous.\n\n— Jennifer",
+  "ticket_summary": "3rd contact attempt, missing package #9087, customer threatening chargeback + regulatory complaint + social media escalation",
+  "customer_email": "<email:subject_test_jennifer>",
+  "customer_order_history": {
+    "order_count": 7,
+    "lifetime_value_eur": 1240.00,
+    "first_order_date": "2023-06-02"
+  },
+  "order_value_eur": 120.00,
+  "order_age_days": 14,
+  "brand_voice": "Warm, direct, customer-first. English-UK. Take ownership of errors. Offer concrete remediation."
+}
