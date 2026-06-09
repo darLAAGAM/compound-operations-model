@@ -2,7 +2,7 @@
 
 ## This Isn't Theory. It's a Production System.
 
-I run a brand. 8-figure revenue. Seven-figure EBITDA. Growing 50% year over year for three consecutive years. A small team. An omnichannel footprint.
+I run a brand. 8-figure revenue. Seven-figure EBITDA. Growing 100%+ year over year. A small team. An omnichannel footprint.
 
 I'm telling you this not to impress you, but to establish one thing: **everything in this playbook is extracted from a real, profitable, growing business.** Not a lab. Not a proof of concept. Not a McKinsey engagement.
 

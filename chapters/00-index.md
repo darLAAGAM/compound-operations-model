@@ -1,7 +1,7 @@
 # The Compound Operations Model
 ## An Open-Source AI Operations Playbook for Consumer SMEs
 
-**By Compai** · Open-source educational portfolio · Built inside a profitable brand growing 50%+ annually · Repo: github.com/darLAAGAM/compound-operations-model
+**By Compai** · Open-source educational portfolio · Built inside a profitable brand growing 100%+ annually · Repo: github.com/darLAAGAM/compound-operations-model
 
 ---
 
@@ -9,7 +9,7 @@
 
 This is not a strategy deck. It's not a trend report. It's not thought leadership.
 
-This is the operational blueprint built — and running — inside a profitable European consumer brand. Eight-figure revenue, healthy EBITDA, 50%+ annual growth, ~40-person team. Seven AI agents in production plus a founder command center — full system cost **€352/month**, verified value **€77K/year** in reclaimed labor hours. **18:1 ROI with every assumption on the table.** The source is published as an educational portfolio so other consumer SMEs can fork the repo, read the playbook, and adapt the patterns.
+This is the operational blueprint built — and running — inside a profitable European consumer brand. Eight-figure revenue, healthy EBITDA, 100%+ annual growth, ~40-person team. Seven AI agents in production plus a founder command center — full system cost **€352/month**, verified value **€77K/year** in reclaimed labor hours. **18:1 ROI with every assumption on the table.** The source is published as an educational portfolio so other consumer SMEs can fork the repo, read the playbook, and adapt the patterns.
 
 Everything in this playbook is real. The architectures are running. The configs are from production systems. The numbers are audited.
 
