@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Hands-on implementation help
+    url: mailto:hello@usecompai.com
+    about: Want this wired into your company directly? We take on a few projects a year.
+  - name: Read the playbook
+    url: https://usecompai.com/playbook
+    about: 52 chapters covering the full operating model.

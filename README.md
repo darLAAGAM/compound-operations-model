@@ -2,6 +2,15 @@
 
 Open-source AI operations playbook for consumer SMEs, published by Compai.
 
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-c9a667.svg)](LICENSE)
+[![Built in public](https://img.shields.io/badge/built-in%20public-1a1a1a.svg)](https://usecompai.com)
+[![Playbook](https://img.shields.io/badge/playbook-52%20chapters-1a1a1a.svg)](https://usecompai.com/playbook)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-c9a667.svg)](CONTRIBUTING.md)
+
+> **The operating system behind an 8-figure consumer brand running on AI for €352/month.** Read it. Fork it. Build your own.
+
+
+
 This repository documents the operating system pattern behind a real 8-figure consumer brand running AI agents in production: company Brain, MCP tools, domain agents, employee onboarding, health audits, shared memory, and controlled action queues.
 
 This is not a SaaS repo. It is an educational implementation portfolio: read it, fork it, adapt it, and keep humans in the approval loop where actions carry risk.
@@ -77,6 +86,17 @@ Copy the contracts:
 
 - Playbook and dashboard: https://usecompai.com
 - Contact: hello@usecompai.com
+
+## Community
+
+This is built in public, and it's meant to be copied. The best thing you can do is fork it, run it, and tell us what happened.
+
+- **Share what you built** — [open a showcase issue](../../issues/new?template=share-what-you-built.md). We keep a public list of real deployments.
+- **Improve the playbook** — fixes, clarifications, validated patterns, translations. See [CONTRIBUTING.md](CONTRIBUTING.md).
+- **Ask a question** — [open a question](../../issues/new?template=question.md) if a chapter left you stuck.
+- **Report a bug** — [bug report](../../issues/new?template=bug-report.md). Security issues go to [SECURITY.md](SECURITY.md), not public issues.
+
+Be useful and be kind: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md).
 
 ## License
 
