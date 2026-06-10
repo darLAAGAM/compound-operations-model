@@ -16,7 +16,7 @@ If a consumer brand's leadership team is asking *"how do we get to the agentic o
 
 | McKinsey prescription | Reference implementation in this playbook |
 |---|---|
-| AI-first workflows drive marginal costs toward the cost of compute | 7 agents + MCP server running at **€352/month** all-in for a 8-figure brand. Marginal cost per decision ≈ €0 |
+| AI-first workflows drive marginal costs toward the cost of compute | 7 agents + MCP server running at **€631/month** all-in for a 8-figure brand. Marginal cost per decision ≈ €0 |
 | Proprietary data becomes a key differentiator | **Pattern Library** — cross-company anonymized operational patterns. New deployments can start from tested patterns instead of a blank page, with autonomy earned through local validation |
 | Walled garden as a superpower | Brand-scoped brain (`knowledge/<brand>/`) with 6 QMD collections — every brand's data is sealed, never leaks to competitors, never used to train anything |
 | Hyperpersonalization at scale | CS agent does per-customer brand-voice drafting; Marketing agent does per-segment campaign variants — tested production feature since Month 3 |

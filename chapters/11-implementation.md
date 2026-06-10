@@ -195,7 +195,7 @@ Monthly savings: €___
 ROI ratio: ___:1
 ```
 
-If the math does not work, stop expanding and fix the workflow. The reference deployment reached **62h/week** reclaimed and **18:1 ROI**, but those numbers only matter if your own baseline validates them.
+If the math does not work, stop expanding and fix the workflow. The reference deployment reached **62h/week** reclaimed and **10:1 ROI**, but those numbers only matter if your own baseline validates them.
 
 ## Common Implementation Mistakes
 

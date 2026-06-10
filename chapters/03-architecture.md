@@ -125,9 +125,9 @@ At the core, the reference system runs on **OpenClaw** — an open-source AI age
 | **Image Generation** | Krea AI | Product shots, creative assets |
 | **Power-User Layer** | Claude Code + MCP | Founder's direct interface — 95 tools, slash commands, subagents |
 
-**Total system cost:** €352/month all-in (infrastructure + LLM access + subscriptions). See Ch.12 for the complete cost breakdown.
+**Total system cost:** €631/month all-in (infrastructure + LLM access + subscriptions). See Ch.12 for the complete cost breakdown.
 
-Compare this to roughly €6,500/month in equivalent saved labor hours (62 hours/week × €21/h loaded operational labor, plus founder opportunity cost). That is a verifiable 18:1 ratio, calculated in Ch.12 with every assumption on the table.
+Compare this to roughly €6,500/month in equivalent saved labor hours (62 hours/week × €21/h loaded operational labor, plus founder opportunity cost). That is a verifiable 10:1 ratio, calculated in Ch.12 with every assumption on the table.
 
 ## What You Need to Get Started
 

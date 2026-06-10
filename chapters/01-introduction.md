@@ -51,7 +51,7 @@ Over 30 days, we deployed a multi-agent AI system across the entire operation. N
 - Founder operational time: 20+ hours/week → 5 hours/week
 - Total annual value created: 30x+ the system cost
 - Total annual cost: €8,100
-- ROI: 18:1 (honest calculation in Ch.12)
+- ROI: 10:1 (honest calculation in Ch.12)
 
 The brand didn't just survive the growth. It doubled revenue with the same team.
 

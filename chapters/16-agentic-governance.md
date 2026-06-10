@@ -128,7 +128,7 @@ The human oversight ratio shifts from "founder as bottleneck" to "founder as fin
 | Compliance | €2-5/month (weekly batch) |
 | **Total add-on** | **€7-40/month** |
 
-Added to the base €352/month for the seven domain agents, a fully-governed swarm costs **€360-395/month** all-in. Still well inside the 18:1 ROI band.
+Added to the base €631/month for the seven domain agents, a fully-governed swarm costs **€360-395/month** all-in. Still well inside the 10:1 ROI band.
 
 ## Limitations shipped in v2.5
 

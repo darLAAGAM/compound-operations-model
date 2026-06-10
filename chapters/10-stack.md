@@ -18,9 +18,9 @@ Every piece of technology in the deployment documented in this playbook, why it 
 | **Founder interface** | Claude Pro Max + MCP | Power-user command center. 95 tools, 5 subagents, 6 slash commands. | €185 |
 | **Hub subscription** | ChatGPT Pro (GPT-5.4) | Primary model for the strategy hub agent. | €20 |
 | **API usage (LLM)** | Anthropic API (Sonnet + Opus fallback + Haiku) | CS + HR primary, all fallbacks, Haiku for crons. | ~€93 |
-| **Total** | | | **€352** |
+| **Total** | | | **€631** |
 
-**Annual: €4,224.** Full breakdown and ROI in Ch.12.
+**Annual: €7,572.** Full breakdown and ROI in Ch.12.
 
 ---
 
@@ -251,9 +251,9 @@ Running AI agents with access to business systems requires serious security:
 | ChatGPT Pro (hub) | 20 |
 | Claude Pro Max (founder interface) | 185 |
 | Cloudflare Tunnel + Vercel | 0 |
-| **Total** | **€352** |
+| **Total** | **€631** |
 
-**Annual: €4,224.** Value created: €77,584 (see Ch.12). **ROI: 18:1.**
+**Annual: €7,572.** Value created: €77,584 (see Ch.12). **ROI: 10:1.**
 
 ---
 

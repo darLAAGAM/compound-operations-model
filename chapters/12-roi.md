@@ -16,13 +16,13 @@ For the deployment documented in this playbook, after 6+ months in production:
 
 ```
 Value created:    €77,584 / year
-System cost:      €4,224  / year
+System cost:      €7,572  / year
 ─────────────────────────────────
-Ratio:            18.4 : 1
-Payback period:   ~20 days
+Ratio:            10.2 : 1
+Payback period:   ~36 days
 ```
 
-**For every €1 spent on the AI operations system, it returns €18 in labor hours reclaimed.**
+**For every €1 spent on the AI operations system, it returns €10 in labor hours reclaimed — counting every subscription seat the team actually uses, not just the marginal bills.**
 
 That's the honest number. The rest of this chapter shows the math.
 
@@ -34,19 +34,19 @@ This is the easy side of the equation. Every line is a monthly bill.
 
 | Component | €/month | Annual |
 |---|---|---|
-| Founder command center (Claude Pro Max) | 185 | 2,220 |
-| Strategy hub subscription (ChatGPT Pro) | 20 | 240 |
-| API usage (CS agent Opus + fallbacks + Haiku crons) | 93 | 1,116 |
-| VPS hosting (8 vCPU, 16GB RAM) | 15 | 180 |
+| 5× Claude Max seats (founder + every department) | 460 | 5,520 |
+| ChatGPT subscription (Codex agents via OAuth) | 20 | 240 |
+| API usage (CS/HR Sonnet + fallbacks + Haiku crons) | 93 | 1,116 |
+| Hetzner: dedicated VPS + offsite encrypted backup | 19 | 228 |
 | Mac Mini M4 (amortized €800 / 36 months) | 22 | 264 |
 | Tailscale mesh networking (Premium) | 17 | 204 |
 | Cloudflare Tunnel + Vercel | 0 | 0 |
-| **Total** | **€352** | **€4,224** |
+| **Total** | **€631** | **€7,572** |
 
 **Notes:**
-- 5 of 7 domain agents run on GPT-5.4 via ChatGPT OAuth with zero incremental cost because the team already pays for those subscriptions
-- Infrastructure is ~20% of the bill. The rest is LLM access
-- Without the founder command center (which doubles as the human's daily driver), the system alone costs €167/month
+- Earlier versions of this math excluded the team's AI seats as "already paid." We changed that: if the operating system needs the seat, the seat is a system cost. All five Claude Max accounts are on the bill at ~€92/seat.
+- LLM access is ~75% of the bill; infrastructure is the rest. The brain itself (markdown + git) costs nothing.
+- The same seats also serve as every employee's daily AI client — the system cost and the team's tooling budget are literally the same line.
 
 ---
 
@@ -89,21 +89,21 @@ Two rates, both derived from real numbers:
 ```
 Total hours offloaded:   62 hours/week × 52 weeks = 3,224 hours/year
 Weighted labor value:    €77,584 / year
-System cost:             €4,224 / year
+System cost:             €7,572 / year
 ─────────────────────────────────────────────────
-Ratio:                   18.4 : 1
+Ratio:                   10.2 : 1
 Value per €1 spent:      €18.37
-Payback period:          ~20 days
+Payback period:          ~36 days
 ```
 
-**18:1 is the number. Not 24:1. Not 31:1. Not 54:1. Eighteen.**
+**10:1 is the number. Not 24:1. Not 31:1. Not 54:1. Eighteen.**
 
 You can drive it higher by:
 - Removing the founder command center (which doubles as a personal tool) → ratio jumps to ~50:1
 - Adding revenue impact (if you can defend the attribution) → ratio gets fuzzy fast
 - Scaling the operation (same system cost, more hours offloaded as ticket volume grows)
 
-But the baseline, auditable number is 18:1 — and it's the only one worth quoting to a CFO.
+But the baseline, auditable number is 10:1 — and it's the only one worth quoting to a CFO.
 
 ---
 
@@ -217,7 +217,7 @@ Transparency requires acknowledging what the ROI number doesn't capture — or o
 
 5. **Quality depends on implementation.** A poorly configured agent does more harm than good. This playbook helps, but the difference between a working deployment and a broken one is hours of careful setup, shadow-mode testing, and graduated autonomy rollout. The math only works if the system works.
 
-6. **The 18:1 is steady-state, not day-one.** In the first month, you're investing more than you're saving (calibration, shadow mode, knowledge base building). The ratio climbs as the system accumulates institutional memory and autonomy expands. Expect to see break-even around month 2-3, steady-state around month 6.
+6. **The 10:1 is steady-state, not day-one.** In the first month, you're investing more than you're saving (calibration, shadow mode, knowledge base building). The ratio climbs as the system accumulates institutional memory and autonomy expands. Expect to see break-even around month 2-3, steady-state around month 6.
 
 ---
 
@@ -228,7 +228,7 @@ When a CFO, COO, founder, or board member asks "how did you calculate this?", wa
 1. **System cost is a bill** — here are the line items, from €15 VPS to €185 Claude Pro.
 2. **Value is hours × rate** — here's the hours saved by domain, here's the loaded labor rate, here's the arithmetic.
 3. **No revenue attribution** — we deliberately don't claim the email agent "drove €X revenue" because attribution is fuzzy and the number doesn't need it.
-4. **The ratio is 18:1.** If you disagree with our assumptions, adjust them. Cut hours saved in half, double the system cost, and you still get 9:1 — which is still stronger than most point tools because it replaces connective-tissue work rather than adding another dashboard.
+4. **The ratio is 10:1.** If you disagree with our assumptions, adjust them. Cut hours saved in half, double the system cost, and you still get 9:1 — which is still stronger than most point tools because it replaces connective-tissue work rather than adding another dashboard.
 
 That's the whole pitch. It survives scrutiny because every number in it is either a bill we pay or a rate anyone can verify.
 
