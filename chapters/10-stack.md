@@ -15,7 +15,7 @@ Every piece of technology in the deployment documented in this playbook, why it 
 | **Secondary compute** | Mac Mini M4 (amortized over 36 months) | Apple Silicon idles at <10W. One-time €800 purchase. Runs 7 domain agents via LaunchDaemons. | €22 |
 | **Mesh networking** | Tailscale Premium | Encrypted zero-config mesh between VPS, Mac Mini, and admin machines. | €17 |
 | **Public ingress** | Cloudflare Tunnel | Permanent HTTPS tunnel for the MCP server at `mcp.<domain>`. No open ports on the VPS. | €0 |
-| **Founder interface** | Claude Pro Max + MCP | Power-user command center. 44 tools, 5 subagents, 6 slash commands. | €185 |
+| **Founder interface** | Claude Pro Max + MCP | Power-user command center. 95 tools, 5 subagents, 6 slash commands. | €185 |
 | **Hub subscription** | ChatGPT Pro (GPT-5.4) | Primary model for the strategy hub agent. | €20 |
 | **API usage (LLM)** | Anthropic API (Sonnet + Opus fallback + Haiku) | CS + HR primary, all fallbacks, Haiku for crons. | ~€93 |
 | **Total** | | | **€352** |
@@ -37,7 +37,7 @@ After testing expensive API-only routing, free-tier models, and paid low-cost al
 | **Marketing Agent** | GPT-5.4 | ChatGPT OAuth (employee sub) | Opus 4.6 | €0 incremental. Same ecommerce lead's ChatGPT subscription. |
 | **Merchandising Agent** | GPT-5.4 | ChatGPT OAuth (employee sub) | Opus 4.6 | €0 incremental. Same finance manager's ChatGPT subscription. |
 | **HR Agent** | Claude Sonnet 4 | Anthropic API key | Opus 4.6 | HR data is sensitive — Anthropic's audit trail preferred. ~€10/mo. |
-| **Founder interface** | Claude Opus 4.6 | Claude Pro Max subscription | — | Power-user interface with 44 MCP tools. Bundled with Pro Max. |
+| **Founder interface** | Claude Opus 4.6 | Claude Pro Max subscription | — | Power-user interface with 95 MCP tools. Bundled with Pro Max. |
 
 ### The Model Cost Evolution (Three Pivots in 6 Months)
 
@@ -74,7 +74,7 @@ Autonomy:      Graduated rollout (week 1 shadow → week 5+ full on proven categ
 Model:         GPT-5.4 primary, Opus 4.6 fallback
 Host:          VPS (cron @reboot, not systemd — see Lesson 25)
 Channels:      Slack (primary) + WhatsApp (urgent) + MCP relay
-Integrations:  All 44 MCP tools + brain_search/brain_write + Knowledge Mining cron
+Integrations:  All 95 MCP tools + brain_search/brain_write + Knowledge Mining cron
 Role:          Cross-domain orchestration, morning briefings, competitive scans
 ```
 
@@ -211,7 +211,7 @@ The production stack includes four scripts maintained as a toolrepo:
 
 1. **Local-first** — your data never leaves your server
 2. **Channel-native** — built-in WhatsApp, Slack, Email, Telegram support
-3. **Skill system** — modular capabilities you can add/remove (167 skills in this deployment)
+3. **Skill system** — modular capabilities you can add/remove (352 skills in this deployment)
 4. **Memory** — persistent context across conversations and sessions
 5. **Cron & heartbeat** — self-healing, scheduled tasks, autonomous operation
 6. **Agent-to-agent (ACP)** — agents coordinate without human intervention

@@ -22,7 +22,7 @@ It has three layers and one rule.
 
 ### Layer 1 — Documents (the knowledge)
 
-**1,341 markdown documents** at the time of writing. Every one of them is the answer to a question someone might ask. Where do we file invoices? What's our refund policy for international orders? How do we onboard a new employee in retail? What patterns have we seen in returns over the last six months?
+**3,007 markdown documents** at the time of writing. Every one of them is the answer to a question someone might ask. Where do we file invoices? What's our refund policy for international orders? How do we onboard a new employee in retail? What patterns have we seen in returns over the last six months?
 
 These came from everywhere:
 - 18 months of email
@@ -37,7 +37,7 @@ Each document is markdown, versioned, tagged, and indexed. Each has a path that 
 
 ### Layer 2 — Skills (the procedures)
 
-**167 executable skills**. Each one is a procedure the brain can run. Not advice — execution.
+**352 executable skills**. Each one is a procedure the brain can run. Not advice — execution.
 
 A skill looks like this internally: a name, a trigger, a set of parameters, a step-by-step procedure, and a contract. Examples:
 
@@ -50,7 +50,7 @@ Skills can be called from any agent. Skills can be called by any human with a Cl
 
 ### Layer 3 — Tools (the systems)
 
-**44 integrated tools** exposed via MCP (Model Context Protocol). Every business system the brain can read or write to:
+**95 integrated tools** exposed via MCP (Model Context Protocol). Every business system the brain can read or write to:
 
 - Shopify (catalog, orders, customers, inventory)
 - The accounting stack (invoices, expenses, AR, P&L)

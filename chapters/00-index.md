@@ -53,9 +53,9 @@ We've organized this playbook around the open operating model used in the refere
 | 09b | [Agent: Merchandising, Wholesale & Assortment](09b-agent-merchandising.md) | Sell-through, allocation, pricing, inventory health |
 | | **— The Stack —** | |
 | 09c | [Agent: HR & People Ops (HR Agent)](09c-agent-hr.md) | Onboarding, vacations, payroll prep, policies, expenses |
-| 10a | [The Technology Stack](10-stack.md) | What runs under the hood — models, infra, Claude Code, Agent-Reach, 44 MCP tools |
+| 10a | [The Technology Stack](10-stack.md) | What runs under the hood — models, infra, Claude Code, Agent-Reach, 95 MCP tools |
 | 10b | [Memory Architecture](10b-memory-architecture.md) | Context Tree, Knowledge Mining cron, shared brain sync (SuperMemory deprecated) |
-| 10c | [The MCP Server](10c-mcp-server.md) | How your entire team gets AI superpowers — 44 tools, zero setup |
+| 10c | [The MCP Server](10c-mcp-server.md) | How your entire team gets AI superpowers — 95 tools, zero setup |
 | 10d | [Advanced Operational Capabilities](10d-advanced-capabilities.md) | 15 specialized features that compound over time — AutoResearch, LLM Council, Pattern Library, and more |
 | 10l | [Brain v2: Living Memory](10l-brain-v2-living-memory.md) | From wiki to operational memory with write-back, capture, tasks, outputs, and world model |
 | 10m | [Capture Layer](10m-capture-layer.md) | Slack, Meet/Gemini, Gmail, and Drive capture with privacy hard-stops |

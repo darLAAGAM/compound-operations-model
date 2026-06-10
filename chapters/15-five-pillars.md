@@ -31,7 +31,7 @@ If a consumer brand's leadership team is asking *"how do we get to the agentic o
 | Humans "above the loop" | **ACK rule** + **review queues** + founder approval gates for high-impact actions. Humans set policy, agents execute at 24/7 cadence |
 | Flat agentic networks, not hierarchies | `agent_send` protocol = any agent can message any other. No hierarchical org chart — the brain is the shared substrate |
 | Agentic teams cross organizational boundaries | MCP Cloudflare Tunnel exposes the swarm to connected humans + partner systems. Pattern Library enables cross-brand intelligence sharing |
-| Small human teams supervise large agent populations | Reference deployment: **1 founder + 2 ops managers supervise 7 agents + 44 MCP tools + 167 skills** — ratio matches McKinsey's "2-5 humans / 50-100 agents" prediction |
+| Small human teams supervise large agent populations | Reference deployment: **1 founder + 2 ops managers supervise 7 agents + 95 MCP tools + 352 skills** — ratio matches McKinsey's "2-5 humans / 50-100 agents" prediction |
 
 ### Pillar 3 — Governance
 
@@ -52,7 +52,7 @@ If a consumer brand's leadership team is asking *"how do we get to the agentic o
 
 | McKinsey prescription | Reference implementation in this playbook |
 |---|---|
-| M-shaped supervisors (broad generalists fluent in AI, orchestrating agents across domains) | **Founder interface via Claude Code** with access to all 44 MCP tools + 167 skills. Role profile documented in Ch.14 |
+| M-shaped supervisors (broad generalists fluent in AI, orchestrating agents across domains) | **Founder interface via Claude Code** with access to all 95 MCP tools + 352 skills. Role profile documented in Ch.14 |
 | T-shaped experts (deep specialists who reimagine workflows, handle exceptions, safeguard quality) | Each **SOUL.md** is written by a domain expert (CS lead writes CS SOUL, finance director writes Finance SOUL). Edge-case handling is in the SOUL, not the code |
 | AI-empowered frontline (socioemotional skills + basic AI fluency, less time on systems, more with humans) | **Team onboarding via MCP** (Ch.14): every employee joins the system through a repeatable setup, gets tools in Claude Desktop, spends their time with customers not with dashboards |
 | Talent system rethought from career paths to incentives | **`me.md` per employee** + **role profile assessment** (`operai-init assess`, new in v0.5) map each person to M/T/frontline track with recommended training path |
@@ -64,7 +64,7 @@ If a consumer brand's leadership team is asking *"how do we get to the agentic o
 
 | McKinsey prescription | Reference implementation in this playbook |
 |---|---|
-| Agentic AI mesh with modular agents | 7 domain SOULs + 44 MCP tools + 167 skills — all composable. Agents can be added or removed without touching others |
+| Agentic AI mesh with modular agents | 7 domain SOULs + 95 MCP tools + 352 skills — all composable. Agents can be added or removed without touching others |
 | Agent-to-agent protocols | **MCP** (Model Context Protocol, Anthropic open-source) as the substrate. Every agent speaks MCP. The reference implementation is documented in the repo |
 | Dynamic sourcing (no vendor lock-in) | **Multi-model routing**: Sonnet 4.5 + Opus 4.7 + GPT-5 + Gemini 2.5 + MiniMax M2.5 in production. Punta de Flecha brings adversarial cross-model deliberation. One model vendor goes down → swarm keeps running |
 | Distributed ownership of IT and data | **Brand-owned VPS** (self-hosted, never our cloud). Founder keeps the keys. The repo documents the runtime |

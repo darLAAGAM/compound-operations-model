@@ -41,7 +41,7 @@ In practice: your finance manager opens Claude Desktop, and it already knows how
 │  └──────────┘ └──────────┘ └──────────┘             │
 │  ┌──────────┐                                        │
 │  │  Skills  │                                        │
-│  │ 3 tools  │ → access to 167 skills                 │
+│  │ 3 tools  │ → access to 352 skills                 │
 │  └──────────┘                                        │
 └─────────────────────────────────────────────────────┘
                     │
@@ -57,12 +57,12 @@ In practice: your finance manager opens Claude Desktop, and it already knows how
 
 ## The Tool Inventory
 
-The MCP server exposes 44 tools organized by domain:
+The MCP server exposes 95 tools organized by domain:
 
 ### Knowledge & Memory
 | Tool | What It Does |
 |------|-------------|
-| `brain_search` | Semantic search across 1,341+ knowledge docs |
+| `brain_search` | Semantic search across 3,007+ knowledge docs |
 | `brain_read` | Read a specific knowledge document |
 | `brain_write` | Create or update knowledge docs |
 | `brain_list` | Browse the knowledge tree |
@@ -138,7 +138,7 @@ Every team member gets the same config. Add this to Claude Desktop's config file
 }
 ```
 
-Restart Claude Desktop. Done. All 44 tools are available.
+Restart Claude Desktop. Done. All 95 tools are available.
 
 ### Real Usage Examples
 
@@ -253,7 +253,7 @@ systemctl enable --now cloudflared
 For power users (founders, tech leads), Claude Code provides an even deeper interface:
 
 ```bash
-# In ~/.claude/CLAUDE.md — all 44 tools + slash commands + subagents
+# In ~/.claude/CLAUDE.md — all 95 tools + slash commands + subagents
 # In ~/.claude/mcp.json — MCP server connection
 # In ~/.claude/agents/ — 5 domain-specific subagents
 # In ~/.claude/commands/ — 6 operational slash commands
@@ -269,10 +269,10 @@ This is the "operator cockpit" — one interface for the entire business.
 
 ## QMD — Quoted Markdown Search
 
-On top of the 44 tools, the MCP server runs **QMD (Quoted Markdown) v2.0.1** — a lightweight semantic index over the brain:
+On top of the 95 tools, the MCP server runs **QMD (Quoted Markdown) v2.0.1** — a lightweight semantic index over the brain:
 
 - **Hourly cron** rebuilds the vector store from the latest brain state
-- **1,341 files indexed** across all knowledge domains
+- **3,007 files indexed** across all knowledge domains
 - **128+ embedded vectors** covering the highest-traffic lookups
 - **4-tier retrieval** (cache → full-text → LLM search → recursive LLM) matches ByteRover's retrieval quality
 
