@@ -15,14 +15,14 @@ ROI = Value created per year ÷ System cost per year
 For the deployment documented in this playbook, after 6+ months in production:
 
 ```
-Value created:    €77,584 / year
-System cost:      €7,572  / year
+Value created:    €122,944 / year   (agents €77,584 + human layer €45,360)
+System cost:      €7,572   / year
 ─────────────────────────────────
-Ratio:            10.2 : 1
-Payback period:   ~36 days
+Ratio:            16.2 : 1
+Payback period:   ~23 days
 ```
 
-**For every €1 spent on the AI operations system, it returns €10 in labor hours reclaimed — counting every subscription seat the team actually uses, not just the marginal bills.**
+**For every €1 spent on the AI operations system, it returns €16 in labor hours reclaimed — counting every subscription seat the team actually uses, not just the marginal bills.**
 
 That's the honest number. The rest of this chapter shows the math.
 
@@ -84,26 +84,41 @@ Two rates, both derived from real numbers:
 - **No revenue impact claimed.** Every number is a *cost avoided*, not a sale attributed. If an agent-optimized email campaign drove +38% revenue per recipient, that's not in this table.
 - **No "prevented stockout" estimates.** Those are real, but hard to defend in a sales conversation. Keep them out of the ROI math.
 
+### Layer 2 — The Human Layer (added 2026-06)
+
+The table above counts work the *agents* absorb. It misses the larger shift: roughly 30 of the 40 team members now run daily work through an AI client connected to the brain. Counted conservatively, at the €21/h operational rate only, over 48 working weeks (humans take holidays; agents don't):
+
+| Use | Who | Hours/week | Annual value |
+|---|---|---|---|
+| Meeting memory — every meeting recorded, transcribed, searchable; no minute-taking, no "what did we decide?" archaeology | whole team | 12h | **€12,096** |
+| Self-served answers — policies, numbers, docs that used to be a Slack ping to a colleague | ~30 weekly users | 15h | **€15,120** |
+| Self-built tooling — the liquidity dashboard the finance lead built, the retail dashboard its manager iterates daily | finance · retail · ecomm | 10h | **€10,080** |
+| Drafting over context — customer emails, B2B replies, briefs written in brand voice from brain context | CS · marketing · sales | 8h | **€8,064** |
+| **Human layer total** | | **45h/week** | **€45,360** |
+
+Why it's conservative: 45h across ~30 weekly users is **90 minutes per person per week**. The meeting-memory line alone likely clears that bar for anyone who attends three meetings.
+
 ### The Math
 
 ```
-Total hours offloaded:   62 hours/week × 52 weeks = 3,224 hours/year
-Weighted labor value:    €77,584 / year
+Agents:                  62 hours/week × 52 weeks = 3,224 hours/year
+Human layer:             45 hours/week × 48 weeks = 2,160 hours/year
+Weighted labor value:    €77,584 + €45,360 = €122,944 / year
 System cost:             €7,572 / year
 ─────────────────────────────────────────────────
-Ratio:                   10.2 : 1
-Value per €1 spent:      €18.37
-Payback period:          ~36 days
+Ratio:                   16.2 : 1
+Value per €1 spent:      €16.24
+Payback period:          ~23 days
 ```
 
-**10:1 is the number. Not 24:1. Not 31:1. Not 54:1. Eighteen.**
+**16:1 is the number. Not 24:1. Not 31:1. Not 54:1. Sixteen — with every seat on the bill and every hour itemized.**
 
 You can drive it higher by:
 - Removing the founder command center (which doubles as a personal tool) → ratio jumps to ~50:1
 - Adding revenue impact (if you can defend the attribution) → ratio gets fuzzy fast
 - Scaling the operation (same system cost, more hours offloaded as ticket volume grows)
 
-But the baseline, auditable number is 10:1 — and it's the only one worth quoting to a CFO.
+But the baseline, auditable number is 16:1 — and it's the only one worth quoting to a CFO.
 
 ---
 
