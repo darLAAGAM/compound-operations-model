@@ -4,7 +4,7 @@ Open-source AI operations playbook for consumer SMEs, published by Compai.
 
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-c9a667.svg)](LICENSE)
 [![Built in public](https://img.shields.io/badge/built-in%20public-1a1a1a.svg)](https://usecompai.com)
-[![Playbook](https://img.shields.io/badge/playbook-52%20chapters-1a1a1a.svg)](https://usecompai.com/playbook)
+[![Playbook](https://img.shields.io/badge/playbook-53%20chapters-1a1a1a.svg)](https://usecompai.com/playbook)
 [![PRs welcome](https://img.shields.io/badge/PRs-welcome-c9a667.svg)](CONTRIBUTING.md)
 
 > **The operating system behind an 8-figure consumer brand running on AI for €352/month.** Read it. Fork it. Build your own.
@@ -17,22 +17,22 @@ This is not a SaaS repo. It is an educational implementation portfolio: read it,
 
 ## Current Version
 
-**v2.1 - 9 June 2026**
+**v2.2 - 10 June 2026**
 
-Latest update: the operational compounding loop from the last month of internal Brain/Swarm work:
+Latest update: hardening the brain. We ran a due-diligence audit on our own system and published the findings and fixes as [`chapters/10s-hardening-the-brain.md`](chapters/10s-hardening-the-brain.md):
 
-- Brain health audits with owner/source/verification/staleness requirements
-- Brain inbox sweeper for raw capture triage
-- Skill evaluation harness and skillify loop
-- Shared memory contract for decisions, tasks, gotchas, tool behavior, workflow state, and raw signals
-- L3 action queue pattern for human-approved operational actions
-- Workflow mining candidates with owner, metric, approval telemetry, and reversibility checks
+- The auth maturity ladder: open -> protect -> enforce, machine identity per node (anonymous writes 84% -> ~13%)
+- Resilience: git-versioned brain (15-min auto-commits + change ledger), dual encrypted backups, checksum-verified restores, batch rollback
+- The execution loop: backlog hygiene with anti-boomerang archiving, throttled generators, a daily triage digest hard-capped at 10 items
+- The sequencing rule: no new ingestion sources until the closed-loop rate is above 30%
+
+v2.1 (9 June 2026) added the operational compounding loop (`10r`): health audits, inbox sweeper, skill eval harness, skillify loop, shared memory contract, L3 action queues, and workflow mining.
 
 ## What Is Inside
 
 | Path | Contents |
 |---|---|
-| `chapters/` | Full public playbook source, including Brain v2 and the June operational loop |
+| `chapters/` | Full public playbook source (53 chapters), including Brain v2, the operational loop, and brain hardening |
 | `kit/` | Starter implementation kit: init CLI, MCP server template, compliance scaffold, onboarding pack, SOUL templates, systemd templates, monitoring scripts |
 | `skills/` | Public starter skills for Shopify inventory, Klaviyo, CS triage, payments, and autoresearch |
 | `pattern-library/` | Anonymized operational patterns and schema |
@@ -42,7 +42,7 @@ Latest update: the operational compounding loop from the last month of internal 
 
 1. Read [`chapters/00-index.md`](chapters/00-index.md).
 2. Read the architecture: [`chapters/03-architecture.md`](chapters/03-architecture.md).
-3. Read the Brain chapters: [`chapters/10l-brain-v2-living-memory.md`](chapters/10l-brain-v2-living-memory.md) through [`chapters/10r-operational-compounding-loop.md`](chapters/10r-operational-compounding-loop.md).
+3. Read the Brain chapters: [`chapters/10l-brain-v2-living-memory.md`](chapters/10l-brain-v2-living-memory.md) through [`chapters/10s-hardening-the-brain.md`](chapters/10s-hardening-the-brain.md).
 4. Inspect the implementation kit: [`kit/README.md`](kit/README.md).
 5. Use the patterns as a starting point, not as a blind install script.
 
