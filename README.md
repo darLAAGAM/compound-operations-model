@@ -34,7 +34,7 @@ v2.1 (9 June 2026) added the operational compounding loop (`10r`): health audits
 |---|---|
 | `chapters/` | Full public playbook source (53 chapters), including Brain v2, the operational loop, and brain hardening |
 | `kit/` | Starter implementation kit: init CLI, MCP server template, compliance scaffold, onboarding pack, SOUL templates, systemd templates, monitoring scripts |
-| `skills/` | Public starter skills for Shopify inventory, Klaviyo, CS triage, payments, and autoresearch |
+| `skills/` | 5 public starter skills + [the full skills catalog](skills/CATALOG.md) — what the 352 are and what's being released next |
 | `pattern-library/` | Anonymized operational patterns and schema |
 | `case-study/` | Anonymized reference case study |
 
