@@ -9,7 +9,7 @@ This skill enables an AI agent to autonomously make small operational purchases 
 ## Prerequisites
 
 - Payhawk API access (see TOOLS.md)
-- Card details stored in `brain/knowledge/agent-card.md`
+- Card details stored in `<brain-root>/knowledge/agent-card.md (private, never in a public repo)`
 - Browser automation capability (for checkout flows)
 - WhatsApp messaging (for approval + notifications)
 
@@ -17,8 +17,8 @@ This skill enables an AI agent to autonomously make small operational purchases 
 
 ```
 ┌─────────────┐     ┌──────────────┐     ┌─────────────┐
-│  Identify    │────▶│  Propose to  │────▶│  Diego      │
-│  Purchase    │     │  Diego (WA)  │     │  Approves 👍│
+│  Identify    │────▶│  Propose to  │────▶│  the founder      │
+│  Purchase    │     │  the founder (WA)  │     │  Approves 👍│
 └─────────────┘     └──────────────┘     └──────┬──────┘
                                                  │
                     ┌──────────────┐     ┌───────▼──────┐
@@ -28,14 +28,14 @@ This skill enables an AI agent to autonomously make small operational purchases 
                            │
                     ┌──────▼───────┐
                     │  Notify      │
-                    │  Diego (WA)  │
+                    │  the founder (WA)  │
                     └──────────────┘
 ```
 
 ## Step-by-Step
 
 ### 1. Propose Purchase
-Send WhatsApp message to Diego:
+Send WhatsApp message to the founder:
 ```
 🛒 Purchase Proposal:
 - Item: [domain/subscription/tool]
@@ -50,8 +50,8 @@ Send WhatsApp message to Diego:
 ### 2. Execute Purchase
 Once approved:
 1. Navigate to vendor checkout via browser automation
-2. Enter card details from `brain/knowledge/agent-card.md`
-3. Enter billing info: Your Company S.L., NIF <tax-id>
+2. Enter card details from `<brain-root>/knowledge/agent-card.md (private, never in a public repo)`
+3. Enter billing info: Your Company S.L., <tax-id>
 4. Request factura/invoice during checkout
 5. Complete purchase
 6. Save confirmation/receipt locally
@@ -68,11 +68,11 @@ Once approved:
    Content-Type: multipart/form-data
    file: [invoice.pdf]
    ```
-3. **Notify Diego** via WhatsApp:
+3. **Notify the founder** via WhatsApp:
    ```
    ✅ Purchase Complete:
    - Item: [what]
-   - Amount: €XX.XX charged to Aurelio AI Ops
+   - Amount: €XX.XX charged to the agent ops card
    - Invoice: ✅ obtained / ⏳ requested
    - Payhawk: ✅ receipt uploaded
    ```
@@ -80,8 +80,8 @@ Once approved:
 ### 4. If Invoice Not Available at Checkout
 - Email vendor requesting invoice for:
   - Company: Your Company S.L.
-  - NIF: <tax-id>
-  - Email: agent@your-company.example (or founder@your-company.example)
+  - Tax ID: <tax-id>
+  - Email: your agent's mailbox (or the founder's)
 - Set reminder to follow up in 48h
 
 ## Safety Rules
@@ -98,17 +98,17 @@ Once approved:
 
 ## Card Details Reference
 
-Stored in: `brain/knowledge/agent-card.md`
+Stored in: `<brain-root>/knowledge/agent-card.md (private, never in a public repo)`
 - Card <card-id>, virtual debit card
-- Limit: €100/month
-- Fund Account: 10 (EUR)
+- Limit: <monthly-limit>
+- Fund Account: <fund-account-id>
 
 ## Vendor Preferences
 
 | Type | Preferred Vendor | Notes |
 |------|-----------------|-------|
 | Domains | Cloudflare Registrar | Cheapest, already have account |
-| DNS | Cloudflare | Already managing laagam.com |
+| DNS | Cloudflare | Already managing the company domain |
 | Hosting | Vercel | Already have account + token |
 | Email | Google Workspace | Existing setup |
 | SaaS | Case by case | Check if free tier sufficient first |

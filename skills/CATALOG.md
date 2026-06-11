@@ -4,17 +4,17 @@ When we say the reference deployment runs **352 skills**, people fairly ask: *"w
 
 | Layer | ~Count | Can it be published? |
 |---|---|---|
-| **1. Operational skills we wrote** for our own workflows | ~80 | Yes, after anonymization (they contain store names, people, real thresholds, internal URLs) — releasing in batches |
-| **2. Brain-ops skills** (the operating loop itself) | ~15 | Yes — highest priority to release |
+| **1. Operational skills we wrote** for our own workflows | ~80 | Yes — **first batch of 12 released below**, more as they're anonymized |
+| **2. Brain-ops skills** (the operating loop itself) | ~15 | Yes — **7 released** (the core loop) |
 | **3. Community / installed skills** (CLIs, marketplace packs, vendor doc packs) | ~250 | Not ours to publish — most are already public in their own registries |
 
-The **5 starter skills** in this repo today are public-safe versions from layer 1. Below is the catalog of what exists, so you can see the breadth — and tell us what to anonymize first (open an issue).
+This repo now ships **24 public skills** (5 original starters + 19 released after launch-day feedback). Below is the catalog of what exists, so you can see the breadth — and tell us what to anonymize first (open an issue).
 
 ---
 
 ## Layer 2 — Brain-ops skills (the operating loop)
 
-These run the brain itself. Being prepared for release:
+These run the brain itself. **Released — in this repo:**
 
 - `check-brain-health` — audits execution hygiene: loose captures, raw/source gaps, outputs without tasks, tasks stuck in review
 - `create-task-card` — turns captured context into an executable task card linked to sources
@@ -26,7 +26,7 @@ These run the brain itself. Being prepared for release:
 - `suggest-skills` — end-of-session audit that proposes which repeated patterns deserve to become skills
 - `release-rollout` — one repeatable workflow for publishing updates across repo, playbook, site, deploy, verification
 
-## Layer 1 — Operational skills (examples, anonymized names)
+## Layer 1 — Operational skills (**12 released in this repo**)
 
 **Retail & merchandising**
 - `restock-trigger` — detects high-velocity / low-stock SKUs and drafts a restock proposal with forecast

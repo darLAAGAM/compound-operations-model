@@ -9,7 +9,7 @@
   "requires": {
     "tools": ["browser", "message", "exec"],
     "apis": ["payhawk"],
-    "credentials": ["brain/knowledge/agent-card.md"]
+    "credentials": ["<brain-root>/knowledge/agent-card.md"]
   },
   "safety": {
     "maxTransactionEur": 50,
